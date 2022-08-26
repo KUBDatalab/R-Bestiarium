@@ -20,6 +20,7 @@ Shaded relief map of Taiwan. Made by https://mobile.twitter.com/researchremora
 #How to?
 These libraries
 ```{r}
+library(rgdal)
 library(dplyr)
 library(rayshader)
 library(elevatr)
