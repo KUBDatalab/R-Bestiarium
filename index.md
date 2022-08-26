@@ -3,15 +3,13 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-FIXME: home page introduction
+Ikke et kursus. Men samling af mærkværdigheder. Ting vi støder på. Og ikke 
+støder på igen før om et år.
 
-<!-- this is an html comment -->
-
-{% comment %} This is a comment in Liquid {% endcomment %}
 
 > ## Prerequisites
 >
-> FIXME
+> Ingen
 {: .prereq}
 
 {% include links.md %}
