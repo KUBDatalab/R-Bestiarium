@@ -14,7 +14,9 @@ keypoints:
 
 Ekstraher lag fra tiff-filer
 
+Kan det køre parallelt på ucloud?
 
+https://inbo.github.io/tutorials/tutorials/spatial_standards_raster/
 
 {% include links.md %}
 

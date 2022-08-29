@@ -176,10 +176,7 @@ render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, h
 ## Error in render_snapshot(filename = "../fig/denmark2.png", samples = 100, : could not find function "render_snapshot"
 ```
 
-
-```
-## Error in knitr::include_graphics("../fig/denmark2.png"): Cannot find the file(s): "../fig/denmark2.png"
-```
+<img src="../fig/denmark2.png" alt="plot of chunk unnamed-chunk-9" width="400px" />
 
 {% include links.md %}
 
