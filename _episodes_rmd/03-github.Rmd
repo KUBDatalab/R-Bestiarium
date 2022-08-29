@@ -1,0 +1,25 @@
+---
+title: "Github"
+teaching: 0
+exercises: 0
+questions:
+- "Key question (FIXME)"
+objectives:
+- "First learning objective. (FIXME)"
+keypoints:
+- "First key point. Brief Answer to questions. (FIXME)"
+---
+
+## Update personal access token:
+
+install.packages("gitcreds")
+library(gitcreds)
+gitcreds_set()
+
+1: Keep these credentials
+2: Replace these credentials
+3: See the password / token
+
+Tryk 2 og paste token fra github ind.
+
+{% include links.md %}
