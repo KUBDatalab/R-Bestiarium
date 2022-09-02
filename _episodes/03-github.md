@@ -24,4 +24,8 @@ gitcreds_set()
 
 Tryk 2 og paste token fra github ind.
 
+Det token får vi heromkring fra:
+
+https://github.com/settings/tokens/882844302
+
 {% include links.md %}

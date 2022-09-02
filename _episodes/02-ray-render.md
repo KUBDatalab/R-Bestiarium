@@ -12,6 +12,9 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
+Enten skal det kun være eksempelkode. Eller også skal jeg uden om problemerne
+med at der ikke er et grafisk interface når dette renderes.
+
 This:
 <img src="../fig/taiwan.jpg" alt="plot of chunk unnamed-chunk-1" width="400px" />
 
