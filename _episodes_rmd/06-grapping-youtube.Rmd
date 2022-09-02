@@ -1,0 +1,188 @@
+---
+title: "Grabbing youtube videos"
+teaching: 0
+exercises: 0
+questions:
+  - "Key question (FIXME)"
+objectives:
+  - "First learning objective. (FIXME)"
+keypoints:
+  - "First key point. Brief Answer to questions. (FIXME)"
+---
+
+Kommentarer er en særlig udfordring. Den tager vi ikke her.
+  
+Det kræver at man har youtube-dl installeret.   
+
+Så vi antager at man et eller andet sted på sin computer har youtube-dl installeret 
+
+(find link!)
+
+Det er et kommandolinie værktøj. Så vi skal vide hvad vi på vores computers
+kommandolinie skal skrive, for at tingene virker.
+
+På en windowsmaskine er det normalt "youtube-dl.exe". På en mac er det "blot" 
+"youtube-dl". 
+
+
+youtube-dl er et værktøj til at downloade videoer. Og det kan håndtere meget andet
+end youtube-videoer. 
+
+Vær altid opmærksom på spørgsmål om copyright. Værktøjet må kun bruges til at 
+downloade videoer som du faktisk har lov at downloade.
+
+Det fungerer grundlæggende ved at man på en kommandolinie på sin computer skriver 
+følgende:
+
+youtube-dl.exe https://www.youtube.com/watch?v=RG7c83sw6gk --write-info-json
+
+Det vil downloade både videoen og metadata (i json-format) fra youtube.
+
+Der kan sættes mange andre options end "--write-info-json". 
+
+En af de meget nyttige er "--ignore-errors", der fortsætter til næste video
+hvis der er download fejl, eksempelvis utilgængelige videoer i en kanal.
+
+En anden er "--skip-download" der undlader at downloade videoen, så man
+kun får metadata gemt.
+
+Læs dokumentationen for en komplet liste. Den er lang. (indsæt link)
+  
+
+Så skal vi have en liste over de videoer vi ønsker at downloade. 
+
+Links til enkeltvideoer:
+```{r}
+single_links <- c("https://www.youtube.com/watch?v=CayMeza487M",
+"https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+"https://www.youtube.com/watch?v=kkyFzll6M10" )
+
+```
+
+
+Playlists looks a bit different:
+```{r}
+playlist <- c("https://www.youtube.com/playlist?list=PLxFN5K79aSHADipyJwISC4fVks2WXBLvH")
+```
+
+
+
+And channels have a third structure:
+```{r}
+channel <- c("https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ")
+```
+
+
+
+Let us combine that into a single vector containing everything we want to
+download:
+
+```{r}
+video_urls <- c(single_links, playlist, channel)
+```
+
+
+
+Now the remaining task is to generate the commandline command from before,
+for each element in the video_urls:
+
+```{r}
+video_urls 
+```
+
+```{r}
+commands <- paste("youtube-dl.exe", video_urls, "--write-info-json --ignore-errors")
+commands
+```
+
+These are the commands we need to run on our computer.
+
+The system() function will take the input it gets, and send that to the operating
+system on your computer. We do that in a for-loop:
+
+
+```{r eval=F}
+for(i in 1:length(commands)){
+  system(commands[i])
+}
+```
+
+
+viola, vi får gemt videoer og metadata. 
+
+Hvad hvsi vi vil høste resultatet af en søgning?
+
+
+
+## HARVEST THEME
+# Vi skal bruge et bibliotek til en ting der ellers er for bøvlet at gøre på
+# anden vis. Først tjekker vi om biblioteket allerede er installeret. Hvis det
+# ikke er - så installerer vi det. Og så loader vi det.
+
+if(!require(filesstrings)){install.packages("filesstrings")}
+library(filesstrings)
+
+# Denne værdi skal ændres på samme måde som den skulle ændres i harvest.R
+exe <- "youtube-dl.exe"
+
+
+# Indtast keywords som vist herunder. Princippet er det samme som for 
+# urls.
+keywords <- c("Jordan Peterson Motivation",
+              "Jordan Peterson Islam",
+              "Jordan Peterson Postmodernism")
+
+# programmet youtube-dl er det der laver arbejdet. Det skal bruge en textstreng der
+# fortæller hvad der skal ske. 
+# Denne funktion leverer en sådan streng.
+# Som default tager den nogle keywords gem som én tekststreng. Så henter den 
+# oplysninger om fem videoer. Det kan vi justere med "antal" parameteren.
+# Den henter som default ikke videoerne ned, men kun metadata.
+# hvad den også gør er at tilføje de keywords der ledte til resultatet, til det 
+# filnavn der gemmes i. 
+# Det betyder, at vi kan trække oplysninger ud om hvordan vi fandt resultatet.
+
+harvest_keyword_string <- function(keywords, antal=5, video=F, exe="youtube-dl.exe"){
+  skip <- "--skip-download"
+  if(video){skip <- ""}
+  search_opt <- paste0("ytsearch",antal,collapse="")
+  search_terms <- str_replace_all(keywords, " ", "_")
+  strengen <- paste0(exe, ' ', search_opt, ':"', keywords, '" ', skip, 
+                     ' --write-info-json -o "%(title)s-%(id)s-keywords-',search_terms,'"')
+  return(strengen)
+  
+}
+
+# Og så går vi i gang med at høste
+# Det er her vi styrer om vi skal have downloadet videoerne også.
+# og hvor mange videoer vi skal have downloadet. 
+for(keyword in keywords){
+  system(harvest_keyword_string(keyword, video=F, exe=exe, antal=5))
+}
+
+
+
+# Til sidst tjekker vi om der er en mappe der hedder json. Hvis der ikke er
+# så opretter vi den.
+
+if(!dir.exists("json")){dir.create("json")}
+
+# Vi tjekker også om der er en mappe der hedder videoer. Hvis der ikke er, så
+# opretter vi den.
+
+if(!dir.exists("videoer")){dir.create("videoer")}
+
+# Så flytter vi alle json filerne til mappen json
+file.move(list.files(pattern=".json"), "json")
+
+# og alle videoerne over i mappen videoer
+file.move(list.files(pattern=".mp4"), "videoer")
+
+# Bemærk her at videoer kan komme i mange formater. Her er det kun mp4 videoer der
+# flyttes.
+
+
+
+  
+  
+{% include links.md %}

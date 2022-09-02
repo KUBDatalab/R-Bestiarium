@@ -10,6 +10,9 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
+Enten skal det kun være eksempelkode. Eller også skal jeg uden om problemerne
+med at der ikke er et grafisk interface når dette renderes.
+
 This:
 ```{r, echo = F, out.width = "400px"}
 knitr::include_graphics("../fig/taiwan.jpg")
