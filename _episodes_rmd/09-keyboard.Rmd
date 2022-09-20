@@ -1,0 +1,75 @@
+---
+title: "Et keyboard"
+teaching: 0
+exercises: 0
+questions:
+  - "Key question (FIXME)"
+objectives:
+  - "First learning objective. (FIXME)"
+keypoints:
+  - "First key point. Brief Answer to questions. (FIXME)"
+---
+Lad os bruge det til også at vise tastaturgenveje på mac etc.
+
+```{r install-ggkeyboard}
+devtools::install_github("sharlagelfand/ggkeyboard", ref = "main")
+```
+
+Default layout. Med en - lidt annoying - palette.
+
+```{r}
+library(ggkeyboard)
+ggkeyboard(palette = keyboard_palette("t0mb3ry"))
+```
+der er lidt at vælge imellem. Selv synes jeg denne er at foretrække.
+"full" giver os et tastatur der ligner mit.
+
+```{r}
+ggkeyboard(full, palette = keyboard_palette("magic"), font_size = 2.75)
+
+```
+Der er også mac-tastaturer:
+```{r}
+ggkeyboard(mac, palette = keyboard_palette("magic"))
+```
+Man kan highligte taster. Dette er tastaturkombien for %>% 
+```{r}
+ggkeyboard(tkl, palette = keyboard_palette("magic")) %>%
+  highlight_keys(c("Ctrl Left", "Shift Left", "M"))
+```
+Men hov! det ligner ikke mit tastatur?
+
+Nej, det er fordi mit tastatur følger en ISO-standard. Og som default lader det
+til at pakken følger den amerikanske ANSI-standard. 
+
+Vi kan bedre lide ISO:
+
+
+```{r}
+ggkeyboard(full, layout = "iso")
+```
+Jamen det ligner stadig ikke?!
+
+Nope. Til en start skal række 3, tast 11 ikke være :;, men Æ:
+```{r}
+full %>% 
+  filter(row == 3) %>% 
+  filter(number == 11)
+```
+det kan man jo lave om på:
+```{r}
+dansk <- full
+dansk[dansk$row==3 & dansk$number == 11,]$key <- "Æ"
+dansk[dansk$row==3 & dansk$number == 11,]$key_label <- "Æ"
+ggkeyboard(dansk, layout = "iso")
+```
+
+Hvorfor Æ'et ser underligt ud? Det har formentlig noget at gøre med at den default
+skrifttype pakken bruger, gør mærkelige ting med Æ. Det har vi ikke kigget nærmere
+på, og vi har heller ikke lavet en "dansk" der har alle relevante ændringer med,
+for at få et rigtigt dansk tastatur.
+
+Det gør vi nok en dag vi får tid.
+
+https://github.com/sharlagelfand/ggkeyboard
+{% include links.md %}

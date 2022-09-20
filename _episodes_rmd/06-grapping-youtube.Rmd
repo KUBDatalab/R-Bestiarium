@@ -52,7 +52,7 @@ Læs dokumentationen for en komplet liste. Den er lang. (indsæt link)
 Så skal vi have en liste over de videoer vi ønsker at downloade. 
 
 Links til enkeltvideoer:
-```{r}
+```{r eval = F}
 single_links <- c("https://www.youtube.com/watch?v=CayMeza487M",
 "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 "https://www.youtube.com/watch?v=kkyFzll6M10" )
@@ -61,14 +61,14 @@ single_links <- c("https://www.youtube.com/watch?v=CayMeza487M",
 
 
 Playlists looks a bit different:
-```{r}
+```{r eval = F}
 playlist <- c("https://www.youtube.com/playlist?list=PLxFN5K79aSHADipyJwISC4fVks2WXBLvH")
 ```
 
 
 
 And channels have a third structure:
-```{r}
+```{r eval = F}
 channel <- c("https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ")
 ```
 
@@ -77,7 +77,7 @@ channel <- c("https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ")
 Let us combine that into a single vector containing everything we want to
 download:
 
-```{r}
+```{r eval = F}
 video_urls <- c(single_links, playlist, channel)
 ```
 
@@ -128,9 +128,13 @@ exe <- "youtube-dl.exe"
 
 # Indtast keywords som vist herunder. Princippet er det samme som for 
 # urls.
+```{r}
 keywords <- c("Jordan Peterson Motivation",
               "Jordan Peterson Islam",
               "Jordan Peterson Postmodernism")
+```
+
+
 
 # programmet youtube-dl er det der laver arbejdet. Det skal bruge en textstreng der
 # fortæller hvad der skal ske. 

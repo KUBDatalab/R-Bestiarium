@@ -97,25 +97,24 @@ video_urls
 ```
 
 ```
-## [1] "https://www.youtube.com/watch?v=CayMeza487M"                             
-## [2] "https://www.youtube.com/watch?v=dQw4w9WgXcQ"                             
-## [3] "https://www.youtube.com/watch?v=kkyFzll6M10"                             
-## [4] "https://www.youtube.com/playlist?list=PLxFN5K79aSHADipyJwISC4fVks2WXBLvH"
-## [5] "https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ"
+## Error in eval(expr, envir, enclos): object 'video_urls' not found
 ```
 
 
 ```r
 commands <- paste("youtube-dl.exe", video_urls, "--write-info-json --ignore-errors")
+```
+
+```
+## Error in paste("youtube-dl.exe", video_urls, "--write-info-json --ignore-errors"): object 'video_urls' not found
+```
+
+```r
 commands
 ```
 
 ```
-## [1] "youtube-dl.exe https://www.youtube.com/watch?v=CayMeza487M --write-info-json --ignore-errors"                             
-## [2] "youtube-dl.exe https://www.youtube.com/watch?v=dQw4w9WgXcQ --write-info-json --ignore-errors"                             
-## [3] "youtube-dl.exe https://www.youtube.com/watch?v=kkyFzll6M10 --write-info-json --ignore-errors"                             
-## [4] "youtube-dl.exe https://www.youtube.com/playlist?list=PLxFN5K79aSHADipyJwISC4fVks2WXBLvH --write-info-json --ignore-errors"
-## [5] "youtube-dl.exe https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ --write-info-json --ignore-errors"
+## Error in eval(expr, envir, enclos): object 'commands' not found
 ```
 
 These are the commands we need to run on our computer.
@@ -152,9 +151,14 @@ exe <- "youtube-dl.exe"
 
 # Indtast keywords som vist herunder. Princippet er det samme som for 
 # urls.
+
+```r
 keywords <- c("Jordan Peterson Motivation",
               "Jordan Peterson Islam",
               "Jordan Peterson Postmodernism")
+```
+
+
 
 # programmet youtube-dl er det der laver arbejdet. Det skal bruge en textstreng der
 # fortæller hvad der skal ske. 

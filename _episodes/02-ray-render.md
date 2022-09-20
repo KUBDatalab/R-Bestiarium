@@ -74,37 +74,15 @@ library(rayshader)
 ```
 
 ```
-## Error in dyn.load(dynlib <- getDynlib(dir)) : 
-##   unable to load shared object '/home/runner/work/_temp/Library/rgl/libs/rgl.so':
-##   libGLU.so.1: cannot open shared object file: No such file or directory
+## Warning in rgl.init(initValue, onlyNULL): RGL: unable to open X11 display
 ```
 
 ```
-## Warning: Loading rgl's DLL failed.
-```
-
-```
-## Warning: Trying without OpenGL...
-```
-
-```
-## Error: package or namespace load failed for 'rayshader':
-##  .onLoad failed in loadNamespace() for 'rgl', details:
-##   call: rgl.init(initValue, onlyNULL)
-##   error: OpenGL is not available in this build
+## Warning: 'rgl.init' failed, running with 'rgl.useNULL = TRUE'.
 ```
 
 ```r
 library(elevatr)
-```
-
-```
-## Error: package or namespace load failed for 'elevatr' in dyn.load(file, DLLpath = DLLpath, ...):
-##  unable to load shared object '/home/runner/work/_temp/Library/units/libs/units.so':
-##   libudunits2.so.0: cannot open shared object file: No such file or directory
-```
-
-```r
 library(raster)
 ```
 
@@ -133,7 +111,11 @@ dem <- get_elev_raster(denmark, z = 6)
 ```
 
 ```
-## Error in get_elev_raster(denmark, z = 6): could not find function "get_elev_raster"
+## Mosaicing & Projecting
+```
+
+```
+## Note: Elevation units are in meters.
 ```
 
 
@@ -142,18 +124,10 @@ dem <- get_elev_raster(denmark, z = 6)
 denmark_dem <- raster::mask(dem, denmark)
 ```
 
-```
-## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'mask': object 'dem' not found
-```
-
 
 
 ```r
 denmark_mat <- raster_to_matrix(denmark_dem)
-```
-
-```
-## Error in raster_to_matrix(denmark_dem): could not find function "raster_to_matrix"
 ```
 
 
@@ -166,17 +140,14 @@ denmark_mat %>%
 ```
 
 ```
-## Error in plot_3d(., denmark_mat, windowsize = c(1200, 1200), zscale = 20, : could not find function "plot_3d"
+## Warning in make_shadow(heightmap, shadowdepth, shadowwidth, background, :
+## `magick` package required for smooth shadow--using basic shadow instead.
 ```
 
 
 
 ```r
 render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, height = 6000)
-```
-
-```
-## Error in render_snapshot(filename = "../fig/denmark2.png", samples = 100, : could not find function "render_snapshot"
 ```
 
 <img src="../fig/denmark2.png" alt="plot of chunk unnamed-chunk-9" width="400px" />
