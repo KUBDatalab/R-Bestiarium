@@ -30,7 +30,7 @@ keypoints:
 ```
 
 ```
-## * checking for file ‘/tmp/Rtmppq7LKL/remotes4cf34b3f426d/dirkschumacher-ompr.highs-14bc8f0/DESCRIPTION’ ... OK
+## * checking for file ‘/tmp/RtmpEdyLTS/remotes29287b172c25/dirkschumacher-ompr.highs-14bc8f0/DESCRIPTION’ ... OK
 ## * preparing ‘ompr.highs’:
 ## * checking DESCRIPTION meta-information ... OK
 ## * checking for LF line-endings in source and make files and shell scripts
@@ -44,7 +44,7 @@ keypoints:
 ```
 
 ```
-## Warning in i.p(...): installation of package '/tmp/Rtmppq7LKL/file4cf3262fc18b/
+## Warning in i.p(...): installation of package '/tmp/RtmpEdyLTS/file29287e395a33/
 ## ompr.highs_0.0.1.9000.tar.gz' had non-zero exit status
 ```
 
@@ -64,10 +64,6 @@ keypoints:
 ```
 ## Installing package into '/home/runner/work/_temp/Library'
 ## (as 'lib' is unspecified)
-```
-
-```
-## also installing the dependencies 'registry', 'ROI', 'slam'
 ```
 
 Hvordan løser vi algebraiske ligningssystemer?
