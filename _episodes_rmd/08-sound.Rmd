@@ -9,6 +9,16 @@ objectives:
 keypoints:
   - "First key point. Brief Answer to questions. (FIXME)"
 ---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("08-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 Eller hvad katten det nu hedder når man ikke visualiserer, men illustrer - 
 også et dårligt ord, data med lyd.
 
@@ -42,6 +52,6 @@ ggplot(plot_df) +
 dev.off()
 ```
 
-https://github.com/coolbutuseless/devoutaudio
+
 
 {% include links.md %}
