@@ -9,6 +9,18 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("03-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Interaktion med github i R-sammenhænge.
+
+
 
 ## Update personal access token:
 

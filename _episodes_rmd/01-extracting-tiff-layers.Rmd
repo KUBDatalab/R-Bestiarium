@@ -10,6 +10,15 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("01-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 Ekstraher lag fra tiff-filer
 
 Kan det køre parallelt på ucloud?
