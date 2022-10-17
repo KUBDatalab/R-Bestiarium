@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r setup, echo = F}
+```{r setup12, echo = F}
 library(devtools)
 devtools::install_github("dirkschumacher/ompr.highs")
 install.packages("highs")
