@@ -11,6 +11,11 @@ objectives:
 keypoints:
   - "First key point. Brief Answer to questions. (FIXME)"
 ---
+
+
+
+
+
 Eller hvad katten det nu hedder når man ikke visualiserer, men illustrer - 
 også et dårligt ord, data med lyd.
 
@@ -24,20 +29,22 @@ Den baserer sig ikke på R. Men der er langt flere muligheder for at mappe
 data til specifikke instrumenter, toner etc.
 
 
-```r
+~~~
 devtools::install_github("coolbutuseless/devout")
 devtools::install_github("coolbutuseless/devoutaudio")
-```
+~~~
+{: .language-r}
 
-```r
+~~~
 library(devoutaudio)
 
 audio()
 plot(1:10)
 dev.off()
-```
+~~~
+{: .language-r}
 
-```r
+~~~
 plot_df <- mtcars %>% arrange(mpg)
 
 audio()
@@ -45,8 +52,9 @@ ggplot(plot_df) +
   geom_point(aes(mpg, wt, size = cyl)) +
   theme(legend.position = 'none')
 dev.off()
-```
+~~~
+{: .language-r}
 
-https://github.com/coolbutuseless/devoutaudio
+
 
 {% include links.md %}

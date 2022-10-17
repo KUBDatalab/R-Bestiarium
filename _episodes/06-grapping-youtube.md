@@ -12,6 +12,11 @@ keypoints:
   - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
+  
+
+
+
+
 Kommentarer er en særlig udfordring. Den tager vi ikke her.
   
 Det kræver at man har youtube-dl installeret.   
@@ -55,26 +60,29 @@ Så skal vi have en liste over de videoer vi ønsker at downloade.
 
 Links til enkeltvideoer:
 
-```r
+~~~
 single_links <- c("https://www.youtube.com/watch?v=CayMeza487M",
-"https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-"https://www.youtube.com/watch?v=kkyFzll6M10" )
-```
+                  "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                  "https://www.youtube.com/watch?v=kkyFzll6M10" )
+~~~
+{: .language-r}
 
 
 Playlists looks a bit different:
 
-```r
+~~~
 playlist <- c("https://www.youtube.com/playlist?list=PLxFN5K79aSHADipyJwISC4fVks2WXBLvH")
-```
+~~~
+{: .language-r}
 
 
 
 And channels have a third structure:
 
-```r
+~~~
 channel <- c("https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ")
-```
+~~~
+{: .language-r}
 
 
 
@@ -82,9 +90,10 @@ Let us combine that into a single vector containing everything we want to
 download:
 
 
-```r
+~~~
 video_urls <- c(single_links, playlist, channel)
-```
+~~~
+{: .language-r}
 
 
 
@@ -92,30 +101,39 @@ Now the remaining task is to generate the commandline command from before,
 for each element in the video_urls:
 
 
-```r
+~~~
 video_urls 
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'video_urls' not found
-```
+~~~
+{: .language-r}
 
 
-```r
+
+~~~
+[1] "https://www.youtube.com/watch?v=CayMeza487M"                             
+[2] "https://www.youtube.com/watch?v=dQw4w9WgXcQ"                             
+[3] "https://www.youtube.com/watch?v=kkyFzll6M10"                             
+[4] "https://www.youtube.com/playlist?list=PLxFN5K79aSHADipyJwISC4fVks2WXBLvH"
+[5] "https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ"                
+~~~
+{: .output}
+
+
+~~~
 commands <- paste("youtube-dl.exe", video_urls, "--write-info-json --ignore-errors")
-```
-
-```
-## Error in paste("youtube-dl.exe", video_urls, "--write-info-json --ignore-errors"): object 'video_urls' not found
-```
-
-```r
 commands
-```
+~~~
+{: .language-r}
 
-```
-## Error in eval(expr, envir, enclos): object 'commands' not found
-```
+
+
+~~~
+[1] "youtube-dl.exe https://www.youtube.com/watch?v=CayMeza487M --write-info-json --ignore-errors"                             
+[2] "youtube-dl.exe https://www.youtube.com/watch?v=dQw4w9WgXcQ --write-info-json --ignore-errors"                             
+[3] "youtube-dl.exe https://www.youtube.com/watch?v=kkyFzll6M10 --write-info-json --ignore-errors"                             
+[4] "youtube-dl.exe https://www.youtube.com/playlist?list=PLxFN5K79aSHADipyJwISC4fVks2WXBLvH --write-info-json --ignore-errors"
+[5] "youtube-dl.exe https://www.youtube.com/channel/UC2LVhJH_9cT2XKp0VAfsKOQ --write-info-json --ignore-errors"                
+~~~
+{: .output}
 
 These are the commands we need to run on our computer.
 
@@ -124,11 +142,12 @@ system on your computer. We do that in a for-loop:
 
 
 
-```r
+~~~
 for(i in 1:length(commands)){
   system(commands[i])
 }
-```
+~~~
+{: .language-r}
 
 
 viola, vi får gemt videoer og metadata. 
@@ -138,37 +157,38 @@ Hvad hvsi vi vil høste resultatet af en søgning?
 
 
 ## HARVEST THEME
-# Vi skal bruge et bibliotek til en ting der ellers er for bøvlet at gøre på
-# anden vis. Først tjekker vi om biblioteket allerede er installeret. Hvis det
-# ikke er - så installerer vi det. Og så loader vi det.
+ Vi skal bruge et bibliotek til en ting der ellers er for bøvlet at gøre på
+anden vis. Først tjekker vi om biblioteket allerede er installeret. Hvis det
+ ikke er - så installerer vi det. Og så loader vi det.
 
 if(!require(filesstrings)){install.packages("filesstrings")}
 library(filesstrings)
 
-# Denne værdi skal ændres på samme måde som den skulle ændres i harvest.R
+ Denne værdi skal ændres på samme måde som den skulle ændres i harvest.R
 exe <- "youtube-dl.exe"
 
 
-# Indtast keywords som vist herunder. Princippet er det samme som for 
-# urls.
+ Indtast keywords som vist herunder. Princippet er det samme som for 
+ urls.
 
-```r
+~~~
 keywords <- c("Jordan Peterson Motivation",
               "Jordan Peterson Islam",
               "Jordan Peterson Postmodernism")
-```
+~~~
+{: .language-r}
 
 
 
-# programmet youtube-dl er det der laver arbejdet. Det skal bruge en textstreng der
-# fortæller hvad der skal ske. 
-# Denne funktion leverer en sådan streng.
-# Som default tager den nogle keywords gem som én tekststreng. Så henter den 
-# oplysninger om fem videoer. Det kan vi justere med "antal" parameteren.
-# Den henter som default ikke videoerne ned, men kun metadata.
-# hvad den også gør er at tilføje de keywords der ledte til resultatet, til det 
-# filnavn der gemmes i. 
-# Det betyder, at vi kan trække oplysninger ud om hvordan vi fandt resultatet.
+ programmet youtube-dl er det der laver arbejdet. Det skal bruge en textstreng der
+ fortæller hvad der skal ske. 
+ Denne funktion leverer en sådan streng.
+ Som default tager den nogle keywords gem som én tekststreng. Så henter den 
+ oplysninger om fem videoer. Det kan vi justere med "antal" parameteren.
+ Den henter som default ikke videoerne ned, men kun metadata.
+ hvad den også gør er at tilføje de keywords der ledte til resultatet, til det 
+ filnavn der gemmes i. 
+ Det betyder, at vi kan trække oplysninger ud om hvordan vi fandt resultatet.
 
 harvest_keyword_string <- function(keywords, antal=5, video=F, exe="youtube-dl.exe"){
   skip <- "--skip-download"
@@ -181,33 +201,33 @@ harvest_keyword_string <- function(keywords, antal=5, video=F, exe="youtube-dl.e
   
 }
 
-# Og så går vi i gang med at høste
-# Det er her vi styrer om vi skal have downloadet videoerne også.
-# og hvor mange videoer vi skal have downloadet. 
+ Og så går vi i gang med at høste
+ Det er her vi styrer om vi skal have downloadet videoerne også.
+ og hvor mange videoer vi skal have downloadet. 
 for(keyword in keywords){
   system(harvest_keyword_string(keyword, video=F, exe=exe, antal=5))
 }
 
 
 
-# Til sidst tjekker vi om der er en mappe der hedder json. Hvis der ikke er
-# så opretter vi den.
+ Til sidst tjekker vi om der er en mappe der hedder json. Hvis der ikke er
+ så opretter vi den.
 
 if(!dir.exists("json")){dir.create("json")}
 
-# Vi tjekker også om der er en mappe der hedder videoer. Hvis der ikke er, så
-# opretter vi den.
+ Vi tjekker også om der er en mappe der hedder videoer. Hvis der ikke er, så
+ opretter vi den.
 
 if(!dir.exists("videoer")){dir.create("videoer")}
 
-# Så flytter vi alle json filerne til mappen json
+ Så flytter vi alle json filerne til mappen json
 file.move(list.files(pattern=".json"), "json")
 
-# og alle videoerne over i mappen videoer
+ og alle videoerne over i mappen videoer
 file.move(list.files(pattern=".mp4"), "videoer")
 
-# Bemærk her at videoer kan komme i mange formater. Her er det kun mp4 videoer der
-# flyttes.
+ Bemærk her at videoer kan komme i mange formater. Her er det kun mp4 videoer der
+ flyttes.
 
 
 

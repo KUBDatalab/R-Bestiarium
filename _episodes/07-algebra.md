@@ -13,58 +13,67 @@ keypoints:
 ---
 
 
-```
-## Loading required package: usethis
-```
 
-```
-## Using github PAT from envvar GITHUB_PAT
-```
 
-```
-## Downloading GitHub repo dirkschumacher/ompr.highs@HEAD
-```
 
-```
-## Skipping 1 packages not available: highs
-```
 
-```
-## * checking for file ‘/tmp/RtmpEdyLTS/remotes29287b172c25/dirkschumacher-ompr.highs-14bc8f0/DESCRIPTION’ ... OK
-## * preparing ‘ompr.highs’:
-## * checking DESCRIPTION meta-information ... OK
-## * checking for LF line-endings in source and make files and shell scripts
-## * checking for empty or unneeded directories
-## * building ‘ompr.highs_0.0.1.9000.tar.gz’
-```
 
-```
-## Installing package into '/home/runner/work/_temp/Library'
-## (as 'lib' is unspecified)
-```
+~~~
+Loading required package: usethis
+~~~
+{: .output}
 
-```
-## Warning in i.p(...): installation of package '/tmp/RtmpEdyLTS/file29287e395a33/
-## ompr.highs_0.0.1.9000.tar.gz' had non-zero exit status
-```
 
-```
-## Installing package into '/home/runner/work/_temp/Library'
-## (as 'lib' is unspecified)
-```
 
-```
-## Warning: package 'highs' is not available for this version of R
-## 
-## A version of this package for your version of R might be available elsewhere,
-## see the ideas at
-## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
-```
+~~~
+Using github PAT from envvar GITHUB_PAT
+~~~
+{: .output}
 
-```
-## Installing package into '/home/runner/work/_temp/Library'
-## (as 'lib' is unspecified)
-```
+
+
+~~~
+Downloading GitHub repo dirkschumacher/ompr.highs@HEAD
+~~~
+{: .output}
+
+
+
+~~~
+
+* checking for file ‘/tmp/RtmpVDuWgb/remotes54fb4c82a896/dirkschumacher-ompr.highs-14bc8f0/DESCRIPTION’ ... OK
+* preparing ‘ompr.highs’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ompr.highs_0.0.1.9000.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+also installing the dependencies 'registry', 'ROI', 'slam'
+~~~
+{: .output}
 
 Hvordan løser vi algebraiske ligningssystemer?
 
@@ -92,60 +101,65 @@ Det er der en pakke der kan.
 
 
 
-```r
+~~~
 library(highs)
-```
-
-```
-## Error in library(highs): there is no package called 'highs'
-```
-
-```r
 library(ompr)
 library(ompr.highs)
-```
-
-```
-## Error in library(ompr.highs): there is no package called 'ompr.highs'
-```
-
-```r
 library(dplyr)
-```
+~~~
+{: .language-r}
 
-```
-## 
-## Attaching package: 'dplyr'
-```
 
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
 
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
+~~~
+
+Attaching package: 'dplyr'
+~~~
+{: .output}
+
+
+
+~~~
+The following objects are masked from 'package:stats':
+
+    filter, lag
+~~~
+{: .output}
+
+
+
+~~~
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+~~~
+{: .output}
 
 Bemærk at ompr.highs skal installeres fra github:
+
+
+~~~
 devtools::install_github("dirkschumacher/ompr.highs")
+~~~
+{: .language-r}
+
+
 
 Så bygger vi modellen. Først initialiserer vi modellen:
 
-```r
+~~~
 model <- MIPModel()
-```
+~~~
+{: .language-r}
 
 Så tilføjer vi variable:
 
-```r
+~~~
 model <- model %>% 
       add_variable(x0, lb = 0, ub = 4, type = "continuous") %>%
       add_variable(x1, lb = 1, type = "continuous")
-```
+~~~
+{: .language-r}
 
 $x_0$ har lower bound (lb) lig 0, og upper bound (ub) lig 4. Og det er en 
 kontinuer variabel.
@@ -156,64 +170,76 @@ så tilføjer vi de øvrige begrænsninger:
 
 
 
-```r
+~~~
 model <- model %>% 
       add_constraint(x1 <= 7) %>%
       add_constraint(x0 + 2*x1 <= 15) %>%
       add_constraint(x0 + 2*x1 >= 5) %>%
       add_constraint(3*x0 + 2*x1 >= 6)
-```
+~~~
+{: .language-r}
 
 Og endelig angiver vi hvad målet er. $x_0 + x_3 + 3$ skal minimeres:
 
-```r
+~~~
 model <- model %>% 
   set_objective(x0+x1+3, sense = "min") 
-```
+~~~
+{: .language-r}
 
 Så er vi klar til at løse modellen:
   
 
-```r
+~~~
 # solve model
 solution <- model %>% 
   solve_model(highs_optimizer())
-```
-
-```
-## Error in highs_optimizer(): could not find function "highs_optimizer"
-```
+~~~
+{: .language-r}
 
 Og når den er færdig, kan vi kigge på resultatet.
 
 Vi fandt en optimal løsning:
 
-```r
+~~~
 solution$status
-```
+~~~
+{: .language-r}
 
-```
-## Error in eval(expr, envir, enclos): object 'solution' not found
-```
+
+
+~~~
+[1] "optimal"
+~~~
+{: .output}
 
 Værdien, minimum af vores mål, er:
 
-```r
+~~~
 solution$objective_value
-```
+~~~
+{: .language-r}
 
-```
-## Error in eval(expr, envir, enclos): object 'solution' not found
-```
+
+
+~~~
+[1] 5.75
+~~~
+{: .output}
 
 Og selve løsningen er givet ved:
 
-```r
+~~~
 solution$solution
-```
+~~~
+{: .language-r}
 
-```
-## Error in eval(expr, envir, enclos): object 'solution' not found
-```
+
+
+~~~
+  x0   x1 
+0.50 2.25 
+~~~
+{: .output}
 
 {% include links.md %}

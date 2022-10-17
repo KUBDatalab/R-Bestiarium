@@ -82,5 +82,5 @@ for at få et rigtigt dansk tastatur.
 
 Det gør vi nok en dag vi får tid.
 
-https://github.com/sharlagelfand/ggkeyboard
+
 {% include links.md %}

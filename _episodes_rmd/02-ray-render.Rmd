@@ -10,6 +10,15 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("02-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 Enten skal det kun være eksempelkode. Eller også skal jeg uden om problemerne
 med at der ikke er et grafisk interface når dette renderes.
 

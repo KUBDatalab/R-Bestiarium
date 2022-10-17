@@ -12,6 +12,13 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
+
+
+
+Interaktion med github i R-sammenhænge.
+
+
+
 ## Update personal access token:
 
 install.packages("gitcreds")
