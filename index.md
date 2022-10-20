@@ -15,11 +15,13 @@ Or where we only encounter the challenge once a year.
 
 These pages are dedicated to these challenges. 
 
-
+A bestiarium is a compendium of beasts. From the middle ages they were
+illustrated volumes describing various animals. Especially weird and exotic 
+animals.
 
 > ## Prerequisites
 >
-> Ingen
+> No specific. But it is probably a good idea to have some basic knowledge of R.
 {: .prereq}
 
 {% include links.md %}
