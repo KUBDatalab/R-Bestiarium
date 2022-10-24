@@ -42,22 +42,11 @@ Loading required package: sp
 
 
 ~~~
-Please note that rgdal will be retired by the end of 2023,
-plan transition to sf/stars/terra functions using GDAL and PROJ
-at your earliest convenience.
-
-rgdal: version: 1.5-32, (SVN revision 1176)
-Geospatial Data Abstraction Library extensions to R successfully loaded
-Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
-Path to GDAL shared files: /usr/share/gdal
-GDAL binary built with GEOS: TRUE 
-Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-Path to PROJ shared files: /usr/share/proj
-Linking to sp version:1.5-0
-To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.
+Error: package or namespace load failed for 'rgdal' in dyn.load(file, DLLpath = DLLpath, ...):
+ unable to load shared object '/home/runner/work/_temp/Library/rgdal/libs/rgdal.so':
+  libgdal.so.26: cannot open shared object file: No such file or directory
 ~~~
-{: .output}
+{: .error}
 
 
 
@@ -102,21 +91,55 @@ library(rayshader)
 
 
 ~~~
-Warning in rgl.init(initValue, onlyNULL): RGL: unable to open X11 display
+Error in dyn.load(dynlib <- getDynlib(dir)) : 
+  unable to load shared object '/home/runner/work/_temp/Library/rgl/libs/rgl.so':
+  libGLU.so.1: cannot open shared object file: No such file or directory
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Loading rgl's DLL failed.
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: 'rgl.init' failed, running with 'rgl.useNULL = TRUE'.
+Warning: Trying without OpenGL...
 ~~~
 {: .warning}
+
+
+
+~~~
+Error: package or namespace load failed for 'rayshader':
+ .onLoad failed in loadNamespace() for 'rgl', details:
+  call: rgl.init(initValue, onlyNULL)
+  error: OpenGL is not available in this build
+~~~
+{: .error}
 
 
 
 ~~~
 library(elevatr)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error: package or namespace load failed for 'elevatr' in dyn.load(file, DLLpath = DLLpath, ...):
+ unable to load shared object '/home/runner/work/_temp/Library/units/libs/units.so':
+  libudunits2.so.0: cannot open shared object file: No such file or directory
+~~~
+{: .error}
+
+
+
+~~~
 library(raster)
 ~~~
 {: .language-r}
@@ -124,19 +147,11 @@ library(raster)
 
 
 ~~~
-
-Attaching package: 'raster'
+Error: package or namespace load failed for 'raster' in dyn.load(file, DLLpath = DLLpath, ...):
+ unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
+  libproj.so.15: cannot open shared object file: No such file or directory
 ~~~
-{: .output}
-
-
-
-~~~
-The following object is masked from 'package:dplyr':
-
-    select
-~~~
-{: .output}
+{: .error}
 
 Getting the boundaries - in this example for Denmark:
 
@@ -144,22 +159,6 @@ Getting the boundaries - in this example for Denmark:
 denmark <- readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds"))
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/
-gadm40_DNK_0_sf.rds")): URL 'https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/
-gadm40_DNK_0_sf.rds': Timeout of 60 seconds was reached
-~~~
-{: .warning}
-
-
-
-~~~
-Error in readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds")): cannot open the connection to 'https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds'
-~~~
-{: .error}
 
 Get the elevation from
 Amazon Web Services Terrian Tiles and the Open Topography global datasets API:
@@ -172,7 +171,7 @@ dem <- get_elev_raster(denmark, z = 6)
 
 
 ~~~
-Error in "sf" %in% class(locations): object 'denmark' not found
+Error in get_elev_raster(denmark, z = 6): could not find function "get_elev_raster"
 ~~~
 {: .error}
 
@@ -186,7 +185,8 @@ denmark_dem <- raster::mask(dem, denmark)
 
 
 ~~~
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'mask': object 'dem' not found
+Error in dyn.load(file, DLLpath = DLLpath, ...): unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
+  libproj.so.15: cannot open shared object file: No such file or directory
 ~~~
 {: .error}
 
@@ -200,7 +200,7 @@ denmark_mat <- raster_to_matrix(denmark_dem)
 
 
 ~~~
-Error in raster_to_matrix(denmark_dem): object 'denmark_dem' not found
+Error in raster_to_matrix(denmark_dem): could not find function "raster_to_matrix"
 ~~~
 {: .error}
 
@@ -217,7 +217,7 @@ denmark_mat %>%
 
 
 ~~~
-Error in plot_3d(., denmark_mat, windowsize = c(1200, 1200), zscale = 20, : object 'denmark_mat' not found
+Error in plot_3d(., denmark_mat, windowsize = c(1200, 1200), zscale = 20, : could not find function "plot_3d"
 ~~~
 {: .error}
 
@@ -231,7 +231,7 @@ render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, h
 
 
 ~~~
-Error in render_snapshot(filename = "../fig/denmark2.png", samples = 100, : No rgl window currently open.
+Error in render_snapshot(filename = "../fig/denmark2.png", samples = 100, : could not find function "render_snapshot"
 ~~~
 {: .error}
 

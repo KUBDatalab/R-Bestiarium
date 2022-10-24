@@ -35,52 +35,8 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Downloading GitHub repo sharlagelfand/ggkeyboard@main
-~~~
-{: .output}
-
-
-
-~~~
-RcppEigen (NA -> 0.3.3.9.2) [CRAN]
-polyclip  (NA -> 1.10-0   ) [CRAN]
-ggforce   (NA -> 0.4.1    ) [CRAN]
-prismatic (NA -> 1.1.1    ) [CRAN]
-~~~
-{: .output}
-
-
-
-~~~
-Installing 4 packages: RcppEigen, polyclip, ggforce, prismatic
-~~~
-{: .output}
-
-
-
-~~~
-Installing packages into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
-~~~
-{: .output}
-
-
-
-~~~
-* checking for file ‘/tmp/RtmpGcHdwB/remotes53f862fdda03/sharlagelfand-ggkeyboard-061f0d9/DESCRIPTION’ ... OK
-* preparing ‘ggkeyboard’:
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘ggkeyboard_0.0.0.9012.tar.gz’
-~~~
-{: .output}
-
-
-
-~~~
-Installing package into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
+Skipping install of 'ggkeyboard' from a github remote, the SHA1 (061f0d90) has not changed since last install.
+  Use `force = TRUE` to force installation
 ~~~
 {: .output}
 

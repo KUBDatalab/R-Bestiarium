@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Extracting tiff-layers"
 teaching: 0
 exercises: 0
 questions:
@@ -18,6 +18,8 @@ knitr_fig_path("01-")
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+find en eksempel tiff-fil til at ekstrahere lag på.
 
 Ekstraher lag fra tiff-filer
 

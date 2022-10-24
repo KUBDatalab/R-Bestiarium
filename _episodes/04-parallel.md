@@ -15,7 +15,19 @@ keypoints:
 
 
 
+library(foreach)
+library(doParallel)
+registerDoParallel(numCores)
 
 
+foreach (i=1:3) %dopar% {
+  sqrt(i)
+}
+## i tidyverse
+library(multidplyr)
+
+cluster <- new_cluster(2)
+
+https://multidplyr.tidyverse.org/articles/multidplyr.html
 
 {% include links.md %}
