@@ -160,22 +160,6 @@ denmark <- readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_
 ~~~
 {: .language-r}
 
-
-
-~~~
-Warning in readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/
-gadm40_DNK_0_sf.rds")): URL 'https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/
-gadm40_DNK_0_sf.rds': Timeout of 60 seconds was reached
-~~~
-{: .warning}
-
-
-
-~~~
-Error in readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds")): cannot open the connection to 'https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds'
-~~~
-{: .error}
-
 Get the elevation from
 Amazon Web Services Terrian Tiles and the Open Topography global datasets API:
 
