@@ -23,10 +23,8 @@ knitr::opts_chunk$set(echo = TRUE)
 devtools::install_github("bergant/datamodelr")
 library(datamodelr)
 
-dm <- dm_read_yaml("oda_er.yml")
 
-graph <- dm_create_graph(dm, rankdir = "BT")
-dm_render_graph(graph)
+
 ```
 
 Folketingets API kan nogen ting. 
@@ -40,12 +38,8 @@ Eller andet. Og vi har slet ikke læst korrektur på det.
 Så. Brug det på eget ansvar.
 
 ```{r}
-devtools::install_github("bergant/datamodelr")
-library(datamodelr)
-
 dm <- dm_read_yaml("../data/oda_er.yml")
-dm <- dm_read_yaml("../../data/oda_er.yml")
-dm <- dm_read_yaml("data/oda_er.yml")
+
 graph <- dm_create_graph(dm, rankdir = "BT")
 dm_render_graph(graph)
 ```

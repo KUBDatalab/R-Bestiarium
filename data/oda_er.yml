@@ -426,34 +426,190 @@
     titel:
     typeid:
 
-# - table: Mødestatus
-# - table: Mødetype
-# - table: Stemme
-# - table: Stemmetype
+- table: Mødestatus
+  segment: *meet
+  columns:
+    id:
+    opdateringsdato:
+    status:
+
+- table: Mødetype
+  segment: *meet
+  columns:
+    id:
+    opdateringsdato:
+    status:
+
+- table: Stemme
+  segment: *meet
+  columns:
+    afstemningid:
+    aktørid:
+    id:
+    opdateringsdato:
+    typeid:
+
+- table: Stemmetype
+  segment: *meet
+  columns:
+    afstemningid:
+    aktørid:
+    id:
+    opdateringsdato:
+    typeid:
 
 ## Øvrige
 
-# - table: EntitetBeskrivelse
-# - table: KollonneBeskrivelse
+- table: EntitetBeskrivelse
+  segment: *other
+  columns:
+    beskrivelse:
+    entitetnavn:
+    id:
+    opdateringsdato:
+
+- table: KollonneBeskrivelse
+  segment: *other
+  columns:
+    beskrivelse:
+    entitetnavn:
+    id:
+    kollonnenavn:
+    opdateringsdato:
 
 ## Relationer
 
-# - table: AktørAktørRolle
-# - table: DagsordenspunktDokument
-# - table: DagsordenspunktSag
-# - table: DokumentAktør
-# - table: DokumentAktørRolle
-# - table: EmneordDokument
-# - table: EmneordSag
-# - table: MødeAktør
-# - table: Periode
-# - table: SagAkter
-# - table: SagAktørRolle
-# - table: SagDokument
-# - table: SagDokumentRolle
-# - table: SagtrinAktør
-# - table: SagstrinAktørRolle
-# - table: SagstrinDokument
+- table: AktørAktørRolle
+  segment: *rel
+  id: {key: yes}
+  opdateringsdato:
+  rolle:
+
+- table: DagsordenspunktDokument
+  segment: *rel
+  columns:
+    dagsordenspunkti:
+    dokumentid:
+    id:
+    note:
+    opdateringsdato:
+
+- table: DagsordenspunktSag
+  segment: *rel
+  columns:
+    dagsordenspunktid:
+    id:
+    opdateringsdato:
+    sagid:
+
+- table: DokumentAktør
+  segment: *rel
+  columns:
+    aktørid:
+    dokumentid:
+    id:
+    opdateringsdato:
+    rolleid:
+
+- table: DokumentAktørRolle
+  segment: *rel
+  columns:
+    id: {key: yes}
+    opdateringsdato:
+    rolle:
+
+- table: EmneordDokument
+  segment: *rel
+  columns:
+    dokumentid:
+    emneordid:
+    id:
+    opdateringsdato:
+
+- table: EmneordSag
+  segment: *rel
+  columns:
+    emneordid:
+    id: {key: yes}
+    opdateringsdato:
+    sagid:
+
+- table: MødeAktør
+  segment: *rel
+  columns:
+    aktørid:
+    id: {key: yes}
+    mødeid:
+    opdateringsdato:
+
+- table: Periode
+  segment: *rel
+  columns:
+    id:
+    kode:
+    opdateringsdato:
+    slutdato:
+    startdato:
+    titel:
+    type:
+
+- table: SagAkter
+  segment: *rel
+  columns:
+    aktørid:
+    id:
+    opdateringsdato:
+    rolleid:
+    sagid:
+
+- table: SagAktørRolle
+  segment: *rel
+  columns:
+    id: {key: yes}
+    opdateringsdato:
+    rolle:
+
+- table: SagDokument
+  segment: *rel
+  columns:
+    bilagsnummer:
+    dokumentid:
+    frigivelsesdato:
+    id:
+    opdateringsdato:
+    rolleid:
+    sagid:
+
+- table: SagDokumentRolle
+  segment: *rel
+  columns:
+    id: {key: yes}
+    opdateringsdato:
+    rolle:
+
+- table: SagtrinAktør
+  segment: *rel
+  columns:
+    aktørid:
+    id: {key: yes}
+    opdateringsdato:
+    rolleid:
+    sagstrinid:
+
+- table: SagstrinAktørRolle
+  segment: *rel
+  columns:
+    id: {key: yes}
+    opdateringsdato:
+    rolle:
+
+- table: SagstrinDokument
+  segment: *rel
+  columns:
+    dokumentid:
+    id:
+    opdateringsdato:
+    sagstrinid:
 
 ## Skrammel
 

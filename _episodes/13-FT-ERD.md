@@ -41,45 +41,8 @@ Skipping install of 'datamodelr' from a github remote, the SHA1 (6aeceb6b) has n
 
 ~~~
 library(datamodelr)
-
-dm <- dm_read_yaml("oda_er.yml")
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in dm_read_yaml("oda_er.yml"): File does not exist.
-~~~
-{: .error}
-
-
-
-~~~
-graph <- dm_create_graph(dm, rankdir = "BT")
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in is.data_model(dm): object 'dm' not found
-~~~
-{: .error}
-
-
-
-~~~
-dm_render_graph(graph)
-~~~
-{: .language-r}
-
-
-
-~~~
-Error: DiagrammeR package needed for this function to work. Please install it.
-~~~
-{: .error}
 
 Folketingets API kan nogen ting. 
 Desværre leverer de ikke et ER diagram.
@@ -93,59 +56,8 @@ Så. Brug det på eget ansvar.
 
 
 ~~~
-devtools::install_github("bergant/datamodelr")
-~~~
-{: .language-r}
-
-
-
-~~~
-Using github PAT from envvar GITHUB_PAT
-~~~
-{: .output}
-
-
-
-~~~
-Skipping install of 'datamodelr' from a github remote, the SHA1 (6aeceb6b) has not changed since last install.
-  Use `force = TRUE` to force installation
-~~~
-{: .output}
-
-
-
-~~~
-library(datamodelr)
-
 dm <- dm_read_yaml("../data/oda_er.yml")
-dm <- dm_read_yaml("../../data/oda_er.yml")
-~~~
-{: .language-r}
 
-
-
-~~~
-Error in dm_read_yaml("../../data/oda_er.yml"): File does not exist.
-~~~
-{: .error}
-
-
-
-~~~
-dm <- dm_read_yaml("data/oda_er.yml")
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in dm_read_yaml("data/oda_er.yml"): File does not exist.
-~~~
-{: .error}
-
-
-
-~~~
 graph <- dm_create_graph(dm, rankdir = "BT")
 dm_render_graph(graph)
 ~~~
