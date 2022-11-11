@@ -1,0 +1,391 @@
+# data model segments
+
+- segment: &sag Sag
+- segment: &sagtrin Sagstrin
+- segment: &dok Dokument
+- segment: &aktor Aktør
+- segment: &meet Møde
+- segment: &other Øvrige
+- segment: &rel Relationer
+- segment: &skrammel Skrammel
+
+### Tables and columns
+## Sag
+
+- table: Aktstykke
+  segment: *sag
+  columns:
+    afgørelse:
+    afgørelsesdato:
+    afgørelsesresultatkode:
+    afstemningskonlusion:
+    baggrundsmateriale:
+    begrundelse:
+    deltundersagid:
+    fremsatundersagid:
+    id:
+    kategoriid:
+    lovnummer:
+    lovnummerdato:
+    nummer:
+    nummernumerisk:
+    nummerpostfix:
+    nummerprefix:
+    offentlighedskode:
+    opdateringsdato:
+    paragraf:
+    paragrafnummer:
+    periodeid:
+    resume:
+    retsinformationsurl:
+    rådsmødedato:
+    statsbudgetsag:
+    statusid:
+    titel:
+    titelkort:
+    typeid:
+    
+- table: Almdel
+  segment: *sag
+  columns:
+    afgørelse:
+    afgørelsesdato:
+    afgørelsesresultatkode:
+    afstemningskonklusion:
+    baggrundsmateriale:
+    begrundelse:
+    deltundersagid:
+    fremsatundersagid:
+    id:
+    kategoriid:
+    lovnummer:
+    lovnummerdato:
+    nummer:
+    nummernumerisk:
+    nummerpostfix:
+    nummerprefix:
+    offentlighedskode:
+    opdateringsdato:
+    paragraf:
+    paragrafnummer:
+    periodeid:
+    resume:
+    retsinformationsurl:
+    rådsmødedato:
+    statsbudgetsag:
+    statusid:
+    titel:
+    titelkort:
+    typeid:
+    
+- table: Debat
+  segment: *sag
+  columns:
+    afgørelse:
+    afgørelsesdato:
+    afgørelsesresultatkode:
+    afstemningskonklusion:
+    baggrundsmateriale:
+    begrundelse:
+    deltundersagid:
+    fremsatundersagid:
+    id:
+    kategoriid:
+    lovnummer:
+    lovnummerdato:
+    nummer:
+    nummernumerisk:
+    nummerpostfix:
+    nummerprefix:
+    offentlighedskode:
+    opdateringsdato:
+    paragraf:
+    paragrafnummer:
+    periodeid:
+    resume:
+    retsinformationsurl:
+    rådsmødedato:
+    statsbudgetsag:
+    statusid:
+    titel:
+    titelkort:
+    typeid:
+
+- table: Emneord
+  segment: *sag
+  columns:
+    emneord:
+    id:
+    opdateringsdato:
+    typeid:
+
+- table: Emneordstype
+  segment: *sag
+  columns:
+    id:
+    opdateringsdato:
+    type:
+
+- table: EUsag
+  segment: *sag
+  columns:
+    afgørelse:
+    afgørelsesdato:
+    afgørelsesresultatkode:
+    afstemningskonklusion:
+    baggrundsmateriale:
+    begrundelse:
+    deltundersagid:
+    fremsatundersagid:
+    id:
+    kategoriid:
+    lovnummer:
+    lovnummerdato:
+    nummer:
+    nummernumerisk:
+    nummerpostfix:
+    nummerprefix:
+    offentlighedskode:
+    opdateringsdato:
+    paragraf:
+    paragrafnummer:
+    periodeid:
+    resume:
+    retsinformationsurl:
+    rådsmødedato:
+    statsbudgetsag:
+    statusid:
+    titel:
+    titelkort:
+    typeid:
+
+- table: Forslag
+  segment: *sag
+  columns:
+    afgørelse:
+    afgørelsesdato:
+    afgørelsesresultatkode:
+    afstemningskonklusion:
+    baggrundsmateriale:
+    begrundelse:
+    deltundersagid:
+    fremsatundersagid:
+    id:
+    kategoriid:
+    lovnummer:
+    lovnummerdato:
+    nummer:
+    nummernumerisk:
+    nummerpostfix:
+    nummerprefix:
+    offentlighedskode:
+    opdateringsdato:
+    paragraf:
+    paragrafnummer:
+    periodeid:
+    resume:
+    retsinformationsurl:
+    rådsmødedato:
+    statsbudgetsag:
+    statusid:
+    titel:
+    titelkort:
+    typeid:
+
+- table: Sag
+  segment: *sag
+  columns:
+    afgørelse:
+    afgørelsesdato:
+    afgørelsesresultatkode:
+    afstemningskonklusion:
+    baggrundsmateriale:
+    begrundelse:
+    deltundersagid:
+    fremsatundersagid:
+    id:
+    kategoriid:
+    lovnummer:
+    lovnummerdato:
+    nummer:
+    nummernumerisk:
+    nummerpostfix:
+    nummerprefix:
+    offentlighedskode:
+    opdateringsdato:
+    paragraf:
+    paragrafnummer:
+    periodeid:
+    resume:
+    retsinformationsurl:
+    rådsmødedato:
+    statsbudgetsag:
+    statusid:
+    titel:
+    titelkort:
+    typeid:
+    
+- table: Sagskategori
+  segment: *sag
+  columns:
+    id:
+    kategori:
+    opdateringsdato:
+
+- table: Sagsstatus
+  segment: *sag
+  columns:
+    id:
+    opdateringsdato:
+    status:
+    
+- table: Sagstype
+  segment: *sag
+  columns:
+    id:
+    opdateringsdato:
+    type:
+
+- table: Sambehandlinger
+  segment: *sag
+  columns:
+    andetsagstrinid:
+    førstesagstrinid:
+    id:
+    opdateringsdato:
+
+## Dokument    
+- table: Dokument
+  segment: *dok
+  columns:
+    dagsordenudgavenummer:
+    dato:
+    frigivelsesdato:
+    grundnotatstatus:
+    id: {key: yes}
+
+# - table: Dokumentkategori
+# - table: Dokumentstatus
+# - table: Dokumenttype
+# - table: Fil
+# - table: Omtryk
+
+## Aktør
+
+- table: Aktør
+  segment: *aktor
+  columns:
+    biografi:
+    efternavn:
+    fornavn:
+    gruppenavnkort:
+    id: {key: yes}
+    navn:
+    opdateringsdato:
+    periodeid:
+    slutdato:
+    startdato:
+    typeid:
+
+- table: AktørAktør
+  segment: *aktor
+  columns:
+    fraaktørid: 
+    id: {key: yes}
+    opdateringsdato:
+    rolleid:
+    slutdato:
+    startdato:
+    tilaktørid:
+
+- table: Aktørtype
+  segment: *aktor
+  columns:
+    id: {key: yes}
+    opdateringsdato:
+    type:
+
+
+## Sagstrin
+
+# - table: Sagstrin
+# - table: Sagstrinstatus
+# - table: Sagstrintype
+
+## Møde
+
+# - table: Afstemning
+# - table: Afstemningstype
+# - table: Dagsordenspunkt
+# - table: Møde
+# - table: Mødestatus
+# - table: Mødetype
+# - table: Stemme
+# - table: Stemmetype
+
+## Øvrige
+
+# - table: EntitetBeskrivelse
+# - table: KollonneBeskrivelse
+
+## Relationer
+
+# - table: AktørAktørRolle
+# - table: DagsordenspunktDokument
+# - table: DagsordenspunktSag
+# - table: DokumentAktør
+# - table: DokumentAktørRolle
+# - table: EmneordDokument
+# - table: EmneordSag
+# - table: MødeAktør
+# - table: Periode
+# - table: SagAkter
+# - table: SagAktørRolle
+# - table: SagDokument
+# - table: SagDokumentRolle
+# - table: SagtrinAktør
+# - table: SagstrinAktørRolle
+# - table: SagstrinDokument
+
+## Skrammel
+
+- table: Person
+  segment: *skrammel
+  columns:
+    Person ID: {key: yes}
+    Name:
+    E-mail:
+    Street:
+    Street number:
+    City:
+    ZIP:
+
+- table: Order
+  segment: *skrammel
+  columns:
+    Order ID: {key: yes}
+    Customer: {ref: Person}
+    Sales person: {ref: Person}
+    Order date:
+    Requested ship date:
+    Status:
+
+- table: Order Line
+  segment: *skrammel
+  columns:
+    Order ID: {key: yes, ref: Order}
+    Line number: {key: yes}
+    Order item: {ref: Item}
+    Quantity:
+    Price:
+
+- table: Item
+  segment: *skrammel
+  display: accent1
+  columns:
+    Item ID: {key: yes}
+    Item Name:
+    Description:
+    Category:
+    Size:
+    Color:

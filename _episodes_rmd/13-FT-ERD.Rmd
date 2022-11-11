@@ -1,0 +1,46 @@
+---
+title: "ER diagrams"
+teaching: 0
+exercises: 0
+questions:
+  - "Key question (FIXME)"
+objectives:
+  - "First learning objective. (FIXME)"
+keypoints:
+  - "First key point. Brief Answer to questions. (FIXME)"
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("13-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+devtools::install_github("bergant/datamodelr")
+library(datamodelr)
+
+dm <- dm_read_yaml("oda_er.yml")
+
+graph <- dm_create_graph(dm, rankdir = "BT")
+dm_render_graph(graph)
+```
+
+Folketingets API kan nogen ting. 
+Desværre leverer de ikke et ER diagram.
+
+Det har vi her. Data redigeres i ../data/oda_er.yml
+
+```{r}
+devtools::install_github("bergant/datamodelr")
+library(datamodelr)
+
+dm <- dm_read_yaml("../data/oda_er.yml")
+graph <- dm_create_graph(dm, rankdir = "BT")
+dm_render_graph(graph)
+```
+
+{% include links.md %}
