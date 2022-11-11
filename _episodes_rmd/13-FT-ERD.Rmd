@@ -1,5 +1,5 @@
 ---
-title: "ER diagrams"
+title: "ER diagrams ft api"
 teaching: 0
 exercises: 0
 questions:
@@ -34,11 +34,18 @@ Desværre leverer de ikke et ER diagram.
 
 Det har vi her. Data redigeres i ../data/oda_er.yml
 
+NB! det er ikke komplet. der er ikke angivelse af keys. Eller referencer.
+Eller andet. Og vi har slet ikke læst korrektur på det.
+
+Så. Brug det på eget ansvar.
+
 ```{r}
 devtools::install_github("bergant/datamodelr")
 library(datamodelr)
 
 dm <- dm_read_yaml("../data/oda_er.yml")
+dm <- dm_read_yaml("../../data/oda_er.yml")
+dm <- dm_read_yaml("data/oda_er.yml")
 graph <- dm_create_graph(dm, rankdir = "BT")
 dm_render_graph(graph)
 ```
