@@ -15,9 +15,62 @@ keypoints:
 
 
 
+Ingen kode her køres faktisk - for det giver ingen mening at køre det på github
+platformen og genere eksemplerne. Så.
+
+Parallelt? Det er når vi deler vores beregninger op i flere mindre portioner. 
+
+En computer har normalt mere end en kerne. 
+
+Men normalt kører R kun på en kerne. 
+
+Hvis vi kunne få R til at køre på mere end en kerne - så kan vi få tunge 
+processer til at køre hurtigere.
+
+Pakken parallel understøtter parallelle beregninger:
+
+~~~
+library(parallel)
+~~~
+{: .language-r}
+Det første vi kan undersøge er hvor mange kerner vi kan arbejde med:
+
+
+~~~
+detectCores()
+~~~
+{: .language-r}
+Det giver outputtet:
+
+[1] 8
+
+Fordi jeg på min computer har 8 kerner. 
+
+Vi har normalt ikke lyst til at bruge alle kerner. Så det antal kerner vi 
+arbejder med er som regel:
+
+
+~~~
+num_cores <- detectCores() - 1
+~~~
+{: .language-r}
+Så når jeg har 8 kerner at gøre godt med, så lader jeg R køre på de 7. Så er der
+en kerne til overs til andet.
+
+Ting kan køres parallelt på mere end en måde.
+
+Hvis man er bekendt med apply funktioner, er den hrugtige måde at gøre 
+det på mclapply
+
+~~~
+kmeans
+MASS::Boston
+~~~
+{: .language-r}
+
+
 library(foreach)
 library(doParallel)
-registerDoParallel(numCores)
 
 
 foreach (i=1:3) %dopar% {

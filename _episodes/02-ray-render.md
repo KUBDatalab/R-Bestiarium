@@ -42,11 +42,22 @@ Loading required package: sp
 
 
 ~~~
-Error: package or namespace load failed for 'rgdal' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/home/runner/work/_temp/Library/rgdal/libs/rgdal.so':
-  libgdal.so.26: cannot open shared object file: No such file or directory
+Please note that rgdal will be retired during 2023,
+plan transition to sf/stars/terra functions using GDAL and PROJ
+at your earliest convenience.
+See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-spatial/evolution
+rgdal: version: 1.6-2, (SVN revision 1183)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
+Path to GDAL shared files: /usr/share/gdal
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
+Path to PROJ shared files: /usr/share/proj
+Linking to sp version:1.5-1
+To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.
 ~~~
-{: .error}
+{: .output}
 
 
 
@@ -91,55 +102,21 @@ library(rayshader)
 
 
 ~~~
-Error in dyn.load(dynlib <- getDynlib(dir)) : 
-  unable to load shared object '/home/runner/work/_temp/Library/rgl/libs/rgl.so':
-  libGLU.so.1: cannot open shared object file: No such file or directory
-~~~
-{: .output}
-
-
-
-~~~
-Warning: Loading rgl's DLL failed.
+Warning in rgl.init(initValue, onlyNULL): RGL: unable to open X11 display
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Trying without OpenGL...
+Warning: 'rgl.init' failed, running with 'rgl.useNULL = TRUE'.
 ~~~
 {: .warning}
-
-
-
-~~~
-Error: package or namespace load failed for 'rayshader':
- .onLoad failed in loadNamespace() for 'rgl', details:
-  call: rgl.init(initValue, onlyNULL)
-  error: OpenGL is not available in this build
-~~~
-{: .error}
 
 
 
 ~~~
 library(elevatr)
-~~~
-{: .language-r}
-
-
-
-~~~
-Error: package or namespace load failed for 'elevatr' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/home/runner/work/_temp/Library/units/libs/units.so':
-  libudunits2.so.0: cannot open shared object file: No such file or directory
-~~~
-{: .error}
-
-
-
-~~~
 library(raster)
 ~~~
 {: .language-r}
@@ -147,11 +124,19 @@ library(raster)
 
 
 ~~~
-Error: package or namespace load failed for 'raster' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
-  libproj.so.15: cannot open shared object file: No such file or directory
+
+Attaching package: 'raster'
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+The following object is masked from 'package:dplyr':
+
+    select
+~~~
+{: .output}
 
 Getting the boundaries - in this example for Denmark:
 
@@ -171,9 +156,16 @@ dem <- get_elev_raster(denmark, z = 6)
 
 
 ~~~
-Error in get_elev_raster(denmark, z = 6): could not find function "get_elev_raster"
+Mosaicing & Projecting
 ~~~
-{: .error}
+{: .output}
+
+
+
+~~~
+Note: Elevation units are in meters.
+~~~
+{: .output}
 
 
 
@@ -185,24 +177,9 @@ denmark_dem <- raster::mask(dem, denmark)
 
 
 ~~~
-Error in dyn.load(file, DLLpath = DLLpath, ...): unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
-  libproj.so.15: cannot open shared object file: No such file or directory
-~~~
-{: .error}
-
-
-
-~~~
 denmark_mat <- raster_to_matrix(denmark_dem)
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in raster_to_matrix(denmark_dem): could not find function "raster_to_matrix"
-~~~
-{: .error}
 
 
 
@@ -217,9 +194,10 @@ denmark_mat %>%
 
 
 ~~~
-Error in plot_3d(., denmark_mat, windowsize = c(1200, 1200), zscale = 20, : could not find function "plot_3d"
+Warning in make_shadow(heightmap, shadowdepth, shadowwidth, background, :
+`magick` package required for smooth shadow--using basic shadow instead.
 ~~~
-{: .error}
+{: .warning}
 
 
 
@@ -227,13 +205,6 @@ Error in plot_3d(., denmark_mat, windowsize = c(1200, 1200), zscale = 20, : coul
 render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, height = 6000)
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error in render_snapshot(filename = "../fig/denmark2.png", samples = 100, : could not find function "render_snapshot"
-~~~
-{: .error}
 
 <img src="../fig/denmark2.png" alt="plot of chunk unnamed-chunk-10" width="400px" style="display: block; margin: auto;" />
 

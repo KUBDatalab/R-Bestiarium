@@ -33,8 +33,28 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Skipping install of 'ompr.highs' from a github remote, the SHA1 (14bc8f05) has not changed since last install.
-  Use `force = TRUE` to force installation
+Downloading GitHub repo dirkschumacher/ompr.highs@HEAD
+~~~
+{: .output}
+
+
+
+~~~
+
+* checking for file ‘/tmp/RtmpqbFwYG/remotes5b8413f26ce5/dirkschumacher-ompr.highs-14bc8f0/DESCRIPTION’ ... OK
+* preparing ‘ompr.highs’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ompr.highs_0.0.1.9000.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
 ~~~
 {: .output}
 
@@ -45,6 +65,13 @@ Installing package into '/home/runner/work/_temp/Library'
 (as 'lib' is unspecified)
 Installing package into '/home/runner/work/_temp/Library'
 (as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+also installing the dependencies 'registry', 'ROI', 'slam'
 ~~~
 {: .output}
 

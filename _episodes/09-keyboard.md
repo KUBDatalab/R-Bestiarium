@@ -35,8 +35,52 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Skipping install of 'ggkeyboard' from a github remote, the SHA1 (061f0d90) has not changed since last install.
-  Use `force = TRUE` to force installation
+Downloading GitHub repo sharlagelfand/ggkeyboard@main
+~~~
+{: .output}
+
+
+
+~~~
+RcppEigen (NA -> 0.3.3.9.3) [CRAN]
+polyclip  (NA -> 1.10-4   ) [CRAN]
+ggforce   (NA -> 0.4.1    ) [CRAN]
+prismatic (NA -> 1.1.1    ) [CRAN]
+~~~
+{: .output}
+
+
+
+~~~
+Installing 4 packages: RcppEigen, polyclip, ggforce, prismatic
+~~~
+{: .output}
+
+
+
+~~~
+Installing packages into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+* checking for file ‘/tmp/Rtmpkbij7t/remotes5a9330a3cf82/sharlagelfand-ggkeyboard-061f0d9/DESCRIPTION’ ... OK
+* preparing ‘ggkeyboard’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ggkeyboard_0.0.0.9012.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
 ~~~
 {: .output}
 
@@ -106,7 +150,7 @@ full %>%
 
 
 ~~~
-Error in row == 3: comparison (1) is possible only for atomic and list types
+Error in row == 3: comparison (==) is possible only for atomic and list types
 ~~~
 {: .error}
 det kan man jo lave om på:

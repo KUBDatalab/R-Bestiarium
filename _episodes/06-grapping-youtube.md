@@ -148,9 +148,6 @@ for(i in 1:length(commands)){
 
 Et viola - videos and metadata is saved.
 
-Hvad hvsi vi vil høste resultatet af en søgning?
-
-
 
 ## Harvest results of searches
 
@@ -196,9 +193,12 @@ harvest_keyword_string(keywords)
 [3] "youtube-dl.exe ytsearch5:\"Jordan Peterson Postmodernism\" --skip-download --write-info-json -o \"%(title)s-%(id)s-keywords-Jordan_Peterson_Postmodernism\""
 ~~~
 {: .output}
-
 By default no videos will be downloaded (video = F), and return the first 
-n = 5 results.
+n = 5 results. 
+
+The function is just a way to generate more than one search. Look at the 
+output, to see what the structure of the commands is. Adjust video = F and 
+n=5 if needed.
 
 Pass them to the commandline as previously shown.
 
