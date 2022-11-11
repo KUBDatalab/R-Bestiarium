@@ -1,5 +1,5 @@
 ---
-title: "ER diagrams"
+title: "ER diagrams ft api"
 teaching: 0
 exercises: 0
 questions:
@@ -44,6 +44,8 @@ devtools::install_github("bergant/datamodelr")
 library(datamodelr)
 
 dm <- dm_read_yaml("../data/oda_er.yml")
+dm <- dm_read_yaml("../../data/oda_er.yml")
+dm <- dm_read_yaml("data/oda_er.yml")
 graph <- dm_create_graph(dm, rankdir = "BT")
 dm_render_graph(graph)
 ```
