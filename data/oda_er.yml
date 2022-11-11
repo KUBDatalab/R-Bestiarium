@@ -264,11 +264,47 @@
     grundnotatstatus:
     id: {key: yes}
 
-# - table: Dokumentkategori
-# - table: Dokumentstatus
-# - table: Dokumenttype
-# - table: Fil
-# - table: Omtryk
+- table: Dokumentkategori
+  segment: *dok
+  columns:
+    id:
+    kategori:
+    opdateringsdato:
+
+- table: Dokumentstatus
+  segment: *dok
+  columns:
+    id:
+    opdateringsdato:
+    status:
+
+- table: Dokumenttype
+  segment: *dok
+  columns:
+    id:
+    opdateringsdato:
+    type:
+
+- table: Fil
+  segment: *dok
+  columns:
+    dokumentid:
+    filurl:
+    format:
+    id:
+    opdateringsdato:
+    titel:
+    variantkode:
+    versionsdato:
+
+- table: Omtryk
+  segment: *dok
+  columns:
+    begrundelse:
+    dato:
+    dokumentid:
+    id:
+    opdateringsdato:
 
 ## Aktør
 
@@ -308,16 +344,88 @@
 
 ## Sagstrin
 
-# - table: Sagstrin
-# - table: Sagstrinstatus
-# - table: Sagstrintype
+- table: Sagstrin
+  segment: *sagtrin
+  columns:
+    dato:
+    folketingstidende:
+    folketingstidendesidenummer:
+    folketingstidendeurl:
+    id:
+    opdateringsdato:
+    sagid:
+    statusid:
+    titel:
+    typeid:
+
+- table: Sagstrinstatus
+  segment: *sagtrin
+  columns:
+    id:
+    opdateringsdato:
+    status:
+
+- table: Sagstrintype
+  segment: *sagtrin
+  columns:
+    id:
+    opdateringsdato:
+    type:
 
 ## Møde
 
-# - table: Afstemning
-# - table: Afstemningstype
-# - table: Dagsordenspunkt
-# - table: Møde
+- table: Afstemning
+  segment: *meet
+  columns:
+    id:
+    kommentar:
+    konklusion:
+    mødeid:
+    nummer:
+    opdateringsdato:
+    sagstrinid:
+    typeid:
+    vedtaget:
+
+- table: Afstemningstype
+  segment: *meet
+  columns:
+    id:
+    opdateringsdato:
+    type:
+    
+- table: Dagsordenspunkt
+  segment: *meet
+  columns:
+    forhandling:
+    forhandlingskode:
+    id:
+    kommentar:
+    kørebemærkning:
+    mødeid:
+    nummer:
+    offentlighedskode:
+    opdateringsdato:
+    sagstrinid:
+    superid:
+    titel:
+
+- table: Møde
+  segment: *meet
+  columns:
+    dagsordenurl:
+    dato:
+    id:
+    lokale:
+    nummer:
+    offentlighedskode:
+    opdateringsdato:
+    periodeid:
+    starttidsbemærkning:
+    statusid:
+    titel:
+    typeid:
+
 # - table: Mødestatus
 # - table: Mødetype
 # - table: Stemme
