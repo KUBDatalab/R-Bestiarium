@@ -32,8 +32,29 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Skipping install of 'datamodelr' from a github remote, the SHA1 (6aeceb6b) has not changed since last install.
-  Use `force = TRUE` to force installation
+Downloading GitHub repo bergant/datamodelr@HEAD
+~~~
+{: .output}
+
+
+
+~~~
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpT4pEcI/remotes52bce7ebf21/bergant-datamodelr-6aeceb6/DESCRIPTION’ ... OK
+* preparing ‘datamodelr’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Omitted ‘LazyData’ from DESCRIPTION
+* building ‘datamodelr_0.2.2.9002.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
 ~~~
 {: .output}
 
@@ -56,10 +77,42 @@ Så. Brug det på eget ansvar.
 
 
 ~~~
-dm <- dm_read_yaml("../data/oda_er.yml")
+library(dplyr)
+~~~
+{: .language-r}
 
-graph <- dm_create_graph(dm, rankdir = "BT")
-dm_render_graph(graph)
+
+
+~~~
+
+Attaching package: 'dplyr'
+~~~
+{: .output}
+
+
+
+~~~
+The following objects are masked from 'package:stats':
+
+    filter, lag
+~~~
+{: .output}
+
+
+
+~~~
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+~~~
+{: .output}
+
+
+
+~~~
+dm_read_yaml("../data/oda_er.yml") %>% 
+dm_create_graph(rankdir = "BT") %>% 
+dm_render_graph() 
 ~~~
 {: .language-r}
 
@@ -69,5 +122,13 @@ dm_render_graph(graph)
 Error: DiagrammeR package needed for this function to work. Please install it.
 ~~~
 {: .error}
+
+
+
+~~~
+# dm_get_graph_svg() %>% 
+#   write("noget.svg")
+~~~
+{: .language-r}
 
 {% include links.md %}

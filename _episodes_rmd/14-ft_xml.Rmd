@@ -1,0 +1,89 @@
+---
+title: "Folketingsreferater i XML"
+teaching: 0
+exercises: 0
+questions:
+  - "Key question (FIXME)"
+objectives:
+  - "First learning objective. (FIXME)"
+keypoints:
+  - "First key point. Brief Answer to questions. (FIXME)"
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("14-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Folketinget gør deres referater tilgængelige i XML-format. XML er ofte noget
+snask at arbejde med i R; mængden af nestede list-kolonner er stor!
+
+Vi skal bruge nogle biblioteker:
+```{r}
+library(dplyr)
+library(tidyr)
+library(xml2)
+```
+
+Her er et lille eksempel. Kun to megabyte.
+
+Det indlæser vi med read_xml:
+```{r indlæs data, eval = F}
+sample <- xml2::read_xml("data/14_ft_xml_sample_xml.xml")
+```
+
+Så konverterer vi. Først til en liste, og dernæst til en tibble:
+
+```{r konverter til tibble, eval = F}
+sample <- sample %>% 
+  as_list() %>% 
+  as_tibble()
+```
+
+Og så kan vi gå igang. Det komplette udtræk af alle data, næppe særligt elegant.
+Og nok også med en resultat af en dataframe hvor der trænger til at blive 
+ryddet lidt op. Men ikke desto mindre noget der giver et resultat:
+```{r, eval = F}
+resultat <- sample %>% 
+  unnest_longer("EdixiData") %>% 
+  hoist(EdixiData) %>% 
+  hoist(EdixiData, "Location", .transform = unlist) %>% 
+  hoist(EdixiData, "Mødenummer", .transform = unlist) %>% 
+  hoist(EdixiData, "Samling", .transform = unlist) %>% 
+  hoist(EdixiData, "MeetingId", .transform = unlist) %>% 
+  hoist(EdixiData, "DateOfSitting", .transform = unlist) %>% 
+  unnest_longer(EdixiData, "Dagsordenpunkt") %>% 
+  hoist(Dagsordenpunkt, "Punktnummer", .transform = unlist) %>% 
+  hoist(Dagsordenpunkt, "Mødetitel", .transform = unlist) %>% 
+  rename(restdata = Dagsordenpunkt) %>% 
+  hoist(restdata, "Dagsordenpunkt", .transform = unlist) %>% 
+  hoist(restdata, "Sagstype", .transform = unlist) %>% 
+  hoist(restdata, "Sagstrin", .transform = unlist) %>% 
+  hoist(restdata, "Sagsnummer", .transform = unlist) %>% 
+  unnest_longer(restdata, indices_to = "Test", values_to = "Tale") %>% 
+  hoist(Tale, "Starttid", .transform = unlist) %>% 
+  hoist(Tale, "Sluttid", .transform = unlist) %>% 
+  hoist(Tale, "Navn", .transform = unlist) %>% 
+  hoist(Tale, "Rolle", .transform = unlist) %>% 
+  hoist(Tale, "Tekst", .transform = unlist) %>% 
+  hoist(Tale, "Parti", .transform = unlist) %>% 
+  hoist(Mødetitel, "PreTekst.Exitus.Linea.Char", .transform = unlist) %>% 
+  hoist(Mødetitel, "Exitus.Linea.Char", .transform = unlist) 
+```
+
+Vi får undervejs kolonner der indeholder nestede lister, altså lister der
+indeholder lister.
+
+Det der var tricket, var at opdage hoist() funktionen, der tillader os at trække
+et bestemt, navngivet element ud af listerne i list-column. Man foretager
+med fordel en unlist transformation nu man alligevel er i gang.
+
+Det er noget snask, og ikke specielt elegant. Der er, så vidt vi kan se, ikke
+nogen rigtig automatiseret løsning. Man er nødt til at kigge på strukturen af 
+xml-filen, og beslutte hvad der skal trækkes ud undervejs.
+
+{% include links.md %}
