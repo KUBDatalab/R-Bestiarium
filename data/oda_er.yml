@@ -23,7 +23,7 @@
     begrundelse:
     deltundersagid:
     fremsatundersagid:
-    id:
+    id: {key: yes}
     kategoriid:
     lovnummer:
     lovnummerdato:
@@ -35,7 +35,7 @@
     opdateringsdato:
     paragraf:
     paragrafnummer:
-    periodeid:
+    periodeid: {ref: Periode}
     resume:
     retsinformationsurl:
     rådsmødedato:
@@ -56,7 +56,7 @@
     begrundelse:
     deltundersagid:
     fremsatundersagid:
-    id:
+    id: {key: yes}
     kategoriid:
     lovnummer:
     lovnummerdato:
@@ -68,7 +68,7 @@
     opdateringsdato:
     paragraf:
     paragrafnummer:
-    periodeid:
+    periodeid: {ref: Periode}
     resume:
     retsinformationsurl:
     rådsmødedato:
@@ -89,7 +89,7 @@
     begrundelse:
     deltundersagid:
     fremsatundersagid:
-    id:
+    id: {key: yes}
     kategoriid:
     lovnummer:
     lovnummerdato:
@@ -101,7 +101,7 @@
     opdateringsdato:
     paragraf:
     paragrafnummer:
-    periodeid:
+    periodeid: {ref: Periode}
     resume:
     retsinformationsurl:
     rådsmødedato:
@@ -115,14 +115,14 @@
   segment: *sag
   columns:
     emneord:
-    id:
+    id: {key: yes}
     opdateringsdato:
     typeid:
 
 - table: Emneordstype
   segment: *sag
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     type:
 
@@ -137,7 +137,7 @@
     begrundelse:
     deltundersagid:
     fremsatundersagid:
-    id:
+    id: {key: yes}
     kategoriid:
     lovnummer:
     lovnummerdato:
@@ -149,7 +149,7 @@
     opdateringsdato:
     paragraf:
     paragrafnummer:
-    periodeid:
+    periodeid: {ref: Periode}
     resume:
     retsinformationsurl:
     rådsmødedato:
@@ -170,7 +170,7 @@
     begrundelse:
     deltundersagid:
     fremsatundersagid:
-    id:
+    id: {key: yes}
     kategoriid:
     lovnummer:
     lovnummerdato:
@@ -182,7 +182,7 @@
     opdateringsdato:
     paragraf:
     paragrafnummer:
-    periodeid:
+    periodeid: {ref: Periode}
     resume:
     retsinformationsurl:
     rådsmødedato:
@@ -203,7 +203,7 @@
     begrundelse:
     deltundersagid:
     fremsatundersagid:
-    id:
+    id: {key: yes}
     kategoriid:
     lovnummer:
     lovnummerdato:
@@ -215,7 +215,7 @@
     opdateringsdato:
     paragraf:
     paragrafnummer:
-    periodeid:
+    periodeid: {ref: Periode}
     resume:
     retsinformationsurl:
     rådsmødedato:
@@ -228,21 +228,21 @@
 - table: Sagskategori
   segment: *sag
   columns:
-    id:
+    id: {key: yes}
     kategori:
     opdateringsdato:
 
 - table: Sagsstatus
   segment: *sag
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     status:
     
 - table: Sagstype
   segment: *sag
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     type:
 
@@ -251,7 +251,7 @@
   columns:
     andetsagstrinid:
     førstesagstrinid:
-    id:
+    id: {key: yes}
     opdateringsdato:
 
 ## Dokument    
@@ -267,21 +267,21 @@
 - table: Dokumentkategori
   segment: *dok
   columns:
-    id:
+    id: {key: yes}
     kategori:
     opdateringsdato:
 
 - table: Dokumentstatus
   segment: *dok
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     status:
 
 - table: Dokumenttype
   segment: *dok
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     type:
 
@@ -291,7 +291,7 @@
     dokumentid:
     filurl:
     format:
-    id:
+    id: {key: yes}
     opdateringsdato:
     titel:
     variantkode:
@@ -303,7 +303,7 @@
     begrundelse:
     dato:
     dokumentid:
-    id:
+    id: {key: yes}
     opdateringsdato:
 
 ## Aktør
@@ -318,21 +318,21 @@
     id: {key: yes}
     navn:
     opdateringsdato:
-    periodeid:
+    periodeid: {ref: Periode}
     slutdato:
     startdato:
-    typeid:
+    typeid: {ref: Aktørtype}
 
 - table: AktørAktør
   segment: *aktor
   columns:
-    fraaktørid: 
+    fraaktørid: {ref: Aktør}
     id: {key: yes}
     opdateringsdato:
-    rolleid:
+    rolleid: {ref: AktørAktørRolle}
     slutdato:
     startdato:
-    tilaktørid:
+    tilaktørid: {ref: Aktør}
 
 - table: Aktørtype
   segment: *aktor
@@ -351,24 +351,24 @@
     folketingstidende:
     folketingstidendesidenummer:
     folketingstidendeurl:
-    id:
+    id: {key: yes}
     opdateringsdato:
-    sagid:
-    statusid:
+    sagid: {ref: Sag}
+    statusid: {ref: Sagstrinsstatus}
     titel:
-    typeid:
+    typeid: {ref: Sagstype}
 
 - table: Sagstrinstatus
   segment: *sagtrin
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     status:
 
 - table: Sagstrintype
   segment: *sagtrin
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     type:
 
@@ -377,7 +377,7 @@
 - table: Afstemning
   segment: *meet
   columns:
-    id:
+    id: {key: yes}
     kommentar:
     konklusion:
     mødeid:
@@ -390,7 +390,7 @@
 - table: Afstemningstype
   segment: *meet
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     type:
     
@@ -399,7 +399,7 @@
   columns:
     forhandling:
     forhandlingskode:
-    id:
+    id: {key: yes}
     kommentar:
     kørebemærkning:
     mødeid:
@@ -415,12 +415,12 @@
   columns:
     dagsordenurl:
     dato:
-    id:
+    id: {key: yes}
     lokale:
     nummer:
     offentlighedskode:
     opdateringsdato:
-    periodeid:
+    periodeid: {ref: Periode}
     starttidsbemærkning:
     statusid:
     titel:
@@ -429,14 +429,14 @@
 - table: Mødestatus
   segment: *meet
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     status:
 
 - table: Mødetype
   segment: *meet
   columns:
-    id:
+    id: {key: yes}
     opdateringsdato:
     status:
 
@@ -454,7 +454,7 @@
   columns:
     afstemningid:
     aktørid:
-    id:
+    id: {key: yes}
     opdateringsdato:
     typeid:
 
@@ -465,7 +465,7 @@
   columns:
     beskrivelse:
     entitetnavn:
-    id:
+    id: {key: yes}
     opdateringsdato:
 
 - table: KollonneBeskrivelse
@@ -473,7 +473,7 @@
   columns:
     beskrivelse:
     entitetnavn:
-    id:
+    id: {key: yes}
     kollonnenavn:
     opdateringsdato:
 
@@ -490,26 +490,26 @@
   columns:
     dagsordenspunkti:
     dokumentid:
-    id:
+    id: {key: yes}
     note:
     opdateringsdato:
 
 - table: DagsordenspunktSag
   segment: *rel
   columns:
-    dagsordenspunktid:
-    id:
+    dagsordenspunktid: {ref: Dagsordenspunkt}
+    id: {key: yes}
     opdateringsdato:
-    sagid:
+    sagid: {ref: Sag}
 
 - table: DokumentAktør
   segment: *rel
   columns:
-    aktørid:
-    dokumentid:
-    id:
+    aktørid: {ref: Aktør}
+    dokumentid: {ref: Dokument}
+    id: {key: yes}
     opdateringsdato:
-    rolleid:
+    rolleid: {ref: DokumentAktørRolle}
 
 - table: DokumentAktørRolle
   segment: *rel
@@ -523,7 +523,7 @@
   columns:
     dokumentid:
     emneordid:
-    id:
+    id: {key: yes}
     opdateringsdato:
 
 - table: EmneordSag
@@ -545,7 +545,7 @@
 - table: Periode
   segment: *rel
   columns:
-    id:
+    id: {key: yes} 
     kode:
     opdateringsdato:
     slutdato:
@@ -557,7 +557,7 @@
   segment: *rel
   columns:
     aktørid:
-    id:
+    id: {key: yes}
     opdateringsdato:
     rolleid:
     sagid:
@@ -575,7 +575,7 @@
     bilagsnummer:
     dokumentid:
     frigivelsesdato:
-    id:
+    id: {key: yes}
     opdateringsdato:
     rolleid:
     sagid:
@@ -607,49 +607,7 @@
   segment: *rel
   columns:
     dokumentid:
-    id:
+    id: {key:yes}
     opdateringsdato:
     sagstrinid:
 
-## Skrammel
-
-- table: Person
-  segment: *skrammel
-  columns:
-    Person ID: {key: yes}
-    Name:
-    E-mail:
-    Street:
-    Street number:
-    City:
-    ZIP:
-
-- table: Order
-  segment: *skrammel
-  columns:
-    Order ID: {key: yes}
-    Customer: {ref: Person}
-    Sales person: {ref: Person}
-    Order date:
-    Requested ship date:
-    Status:
-
-- table: Order Line
-  segment: *skrammel
-  columns:
-    Order ID: {key: yes, ref: Order}
-    Line number: {key: yes}
-    Order item: {ref: Item}
-    Quantity:
-    Price:
-
-- table: Item
-  segment: *skrammel
-  display: accent1
-  columns:
-    Item ID: {key: yes}
-    Item Name:
-    Description:
-    Category:
-    Size:
-    Color:
