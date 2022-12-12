@@ -31,7 +31,7 @@ Shaded relief map of Taiwan. Made by https://mobile.twitter.com/researchremora
 
 #How to?
 These libraries
-```{r}
+```{r libraries}
 library(rgdal)
 library(dplyr)
 library(rayshader)
@@ -40,28 +40,28 @@ library(raster)
 ```
 
 Getting the boundaries - in this example for Denmark:
-```{r}
+```{r, eval =F}
 denmark <- readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds"))
 ```
 
 Get the elevation from
 Amazon Web Services Terrian Tiles and the Open Topography global datasets API:
-```{r}
+```{r, eval = F}
 dem <- get_elev_raster(denmark, z = 6)
 ```
 
 
-```{r}
+```{r, eval = F}
 denmark_dem <- raster::mask(dem, denmark)
 ```
 
 
-```{r}
+```{r, eval = F}
 denmark_mat <- raster_to_matrix(denmark_dem)
 ```
 
 
-```{r}
+```{r, eval = F}
 denmark_mat %>% 
   sphere_shade(texture= "imhof3") %>% 
    plot_3d(denmark_mat, windowsize = c(1200,1200),
@@ -69,7 +69,7 @@ denmark_mat %>%
 ```
 
 
-```{r}
+```{r, eval = F}
 render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, height = 6000)
 ```
 

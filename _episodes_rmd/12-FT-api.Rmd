@@ -108,7 +108,7 @@ vil have, i dette tilfælde alle aktører, der har typeid lig med 10.
 Hvad der kan være særligt interessant, er type 11, "parlamentarisk forsamling".
 Det er her vi finder Folketingssamlingerne:
 
-```{r}
+```{r eval = F}
  %>% 
   fromJSON() %>%
   .$value %>% 
