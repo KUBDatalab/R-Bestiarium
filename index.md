@@ -5,6 +5,8 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 ---
 This is not a course.
 
+![Pages under continual construction](fig/under-construction_geek_man_01.png)
+
 In our work assisting students (and sometimes researchers) working with data,
 we encounter a special type of challenge. Or problem.
 
