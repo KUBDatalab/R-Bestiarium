@@ -122,15 +122,6 @@ Det er her vi finder Folketingssamlingerne:
   writeClipboard()
 ~~~
 {: .language-r}
-
-
-
-~~~
-Error: <text>:1:2: unexpected SPECIAL
-1:  %>%
-     ^
-~~~
-{: .error}
 Vær opmærksom på, at der har sneget sig en registrering af Europarådet ind 
 her. Det er meget passende, for det er også en parlamentarisk forsamling,
 men kan forvirre.

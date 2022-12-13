@@ -23,38 +23,6 @@ Vi skal bruge nogle biblioteker:
 
 ~~~
 library(dplyr)
-~~~
-{: .language-r}
-
-
-
-~~~
-
-Attaching package: 'dplyr'
-~~~
-{: .output}
-
-
-
-~~~
-The following objects are masked from 'package:stats':
-
-    filter, lag
-~~~
-{: .output}
-
-
-
-~~~
-The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union
-~~~
-{: .output}
-
-
-
-~~~
 library(tidyr)
 library(xml2)
 ~~~
@@ -65,7 +33,7 @@ Her er et lille eksempel. Kun to megabyte.
 Det indlæser vi med read_xml:
 
 ~~~
-sample <- xml2::read_xml("data/14_ft_xml_sample_xml.xml")
+data <- xml2::read_xml("data/14_ft_xml_sample_xml.xml")
 ~~~
 {: .language-r}
 
@@ -73,7 +41,7 @@ Så konverterer vi. Først til en liste, og dernæst til en tibble:
 
 
 ~~~
-sample <- sample %>% 
+data <- data %>% 
   as_list() %>% 
   as_tibble()
 ~~~
@@ -84,43 +52,49 @@ Og nok også med en resultat af en dataframe hvor der trænger til at blive
 ryddet lidt op. Men ikke desto mindre noget der giver et resultat:
 
 ~~~
-resultat <- sample %>% 
-  unnest_longer("EdixiData") %>% 
-  hoist(EdixiData) %>% 
-  hoist(EdixiData, "Location", .transform = unlist) %>% 
-  hoist(EdixiData, "Mødenummer", .transform = unlist) %>% 
-  hoist(EdixiData, "Samling", .transform = unlist) %>% 
-  hoist(EdixiData, "MeetingId", .transform = unlist) %>% 
-  hoist(EdixiData, "DateOfSitting", .transform = unlist) %>% 
-  unnest_longer(EdixiData, "Dagsordenpunkt") %>% 
-  hoist(Dagsordenpunkt, "Punktnummer", .transform = unlist) %>% 
-  hoist(Dagsordenpunkt, "Mødetitel", .transform = unlist) %>% 
-  rename(restdata = Dagsordenpunkt) %>% 
-  hoist(restdata, "Dagsordenpunkt", .transform = unlist) %>% 
-  hoist(restdata, "Sagstype", .transform = unlist) %>% 
-  hoist(restdata, "Sagstrin", .transform = unlist) %>% 
-  hoist(restdata, "Sagsnummer", .transform = unlist) %>% 
-  unnest_longer(restdata, indices_to = "Test", values_to = "Tale") %>% 
-  hoist(Tale, "Starttid", .transform = unlist) %>% 
-  hoist(Tale, "Sluttid", .transform = unlist) %>% 
-  hoist(Tale, "Navn", .transform = unlist) %>% 
-  hoist(Tale, "Rolle", .transform = unlist) %>% 
-  hoist(Tale, "Tekst", .transform = unlist) %>% 
-  hoist(Tale, "Parti", .transform = unlist) %>% 
-  hoist(Mødetitel, "PreTekst.Exitus.Linea.Char", .transform = unlist) %>% 
-  hoist(Mødetitel, "Exitus.Linea.Char", .transform = unlist) 
+ data %>% 
+    unnest_longer("EdixiData", "Møde") %>% 
+    hoist(Møde, "Samling", 
+          "MeetingId", 
+          "Location", 
+          "Mødenummer", 
+          "DateOfSitting", 
+          .transform = unlist) %>% 
+    select(-Møde_id) %>% 
+    unnest_longer("Møde") %>% 
+    hoist(Møde, "Punktnummer",
+          "Mødetitel",
+          "Dagsordenpunkt",
+          "Sagstype",
+          "Sagsnummer",
+          "Sagstrin",
+          .transform = unlist) %>% 
+    select(-Møde_id) %>% 
+    mutate(Mødetitel = map(Mødetitel, paste0, collapse = " ")) %>% 
+    unnest_longer(Møde) %>% 
+    unnest_wider(Møde, transform = unlist) %>% 
+    hoist(Tekst, "sup") %>% 
+    mutate(Tekst = map(Tekst, paste0, collapse = " ")) %>% 
+    unnest_longer(Tekst) %>% 
+    select(-Møde_id)
 ~~~
 {: .language-r}
 
 Vi får undervejs kolonner der indeholder nestede lister, altså lister der
 indeholder lister.
 
-Det der var tricket, var at opdage hoist() funktionen, der tillader os at trække
-et bestemt, navngivet element ud af listerne i list-column. Man foretager
-med fordel en unlist transformation nu man alligevel er i gang.
+Tricket er at bruge hoist() funktionen, der tillader os at trække bestemte,
+navngivne, elementer ud af listerne i de list-columns der opstår undervejs.
 
-Det er noget snask, og ikke specielt elegant. Der er, så vidt vi kan se, ikke
-nogen rigtig automatiseret løsning. Man er nødt til at kigge på strukturen af 
-xml-filen, og beslutte hvad der skal trækkes ud undervejs.
+Man kan med fordel foretage en transformation af dem med unlist() funktionen
+i samme omgang.
+
+Når list-kolonnen indeholder flere, eksempelvis dagsordenspunkter, bruger vi 
+unnest_longer(). Træk de enkeltstående felter ud først.
+
+Når vi når dertil at en listcolumn indeholder lister af samme længde, benyttes
+unnest_wider i stedet. Her kan vi ofte også bruge transform = unlist. Bemærk
+at syntaksen i unnest_ funktionerne er lidt forskellig fra hoist(). I sidstnævnte
+er det .transform = unlist, altså med et punktum foran.
 
 {% include links.md %}

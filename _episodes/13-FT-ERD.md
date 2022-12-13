@@ -32,29 +32,8 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Downloading GitHub repo bergant/datamodelr@HEAD
-~~~
-{: .output}
-
-
-
-~~~
-── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpT4pEcI/remotes52bce7ebf21/bergant-datamodelr-6aeceb6/DESCRIPTION’ ... OK
-* preparing ‘datamodelr’:
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-Omitted ‘LazyData’ from DESCRIPTION
-* building ‘datamodelr_0.2.2.9002.tar.gz’
-~~~
-{: .output}
-
-
-
-~~~
-Installing package into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
+Skipping install of 'datamodelr' from a github remote, the SHA1 (6aeceb6b) has not changed since last install.
+  Use `force = TRUE` to force installation
 ~~~
 {: .output}
 
