@@ -1,0 +1,76 @@
+---
+title: "Farver og striber"
+teaching: 0
+exercises: 0
+questions:
+- "Key question (FIXME)"
+objectives:
+- "First learning objective. (FIXME)"
+keypoints:
+- "First key point. Brief Answer to questions. (FIXME)"
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("15-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Hvordan vælger vi farver til vores plots? Hvordan laver vi vores 
+egne paletter.
+
+```{r}
+library(monochromeR)
+```
+Der er mange paletter at arbejde med i mange forskellige pakker.
+
+monochromeR gør det relativt let at lave vores egen:
+```{r}
+generate_palette("red", modification = "go_darker",
+                 n_colors = 8, view_palette = T)
+```
+
+Og hvis vi vil have blandinger af to farver, eksempelvis hvis vi vil 
+have en palette der giver os farver fra en farve til en anden:
+```{r}
+generate_palette("red", blend_color = "blue",
+                 n_colors = 7, view_palette = T)
+```
+
+Paletter kan komme fra andre steder. En populær pakke er "wesanderson", der 
+leverer paletter baseret på de paletter Wes Anderson bruger i hans film. 
+
+Pakken monochromeR kan også vise dem:
+
+```{r}
+library(wesanderson)
+```
+```{r}
+view_palette(wesanderson::wes_palettes$FantasticFox1)
+```
+Det er ofte en god ide at tjekke hvordan ens palette bliver opfattet af farveblinde.
+
+Pakken colorblindr giver et bud på det - og det er nok kun et bud:
+
+```{r}
+library(devtools)
+remotes::install_github("wilkelab/cowplot")
+install.packages("colorspace", repos = "http://R-Forge.R-project.org")
+install_github("clauswilke/colorblindr")
+```
+cvd_grid bruger som udgangspunkt det sidste plot vi lavede.
+```{r}
+library(colorblindr)
+view_palette(wesanderson::wes_palettes$FantasticFox1)
+
+cvd_grid()
+```
+
+Hvordan bruger vi så en palette i et plot?
+
+
+{% include links.md %}
+

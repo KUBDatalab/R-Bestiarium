@@ -3,11 +3,11 @@ title: "Extracting tiff-layers"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "Hvordan ekstraherer jeg lag fra en geotiff fil?"
 objectives:
-- "First learning objective. (FIXME)"
+- "FIXME"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "FIXME"
 ---
 
 ```{r, include = FALSE}
@@ -19,13 +19,48 @@ knitr_fig_path("01-")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-find en eksempel tiff-fil til at ekstrahere lag på.
+Tiff-filer kan indeholde lag. Vi er stødt på dem i en situation hvor
+en studerende havde behov for at trække lagene ud af en 
+GeoTIFF fil. 
 
-Ekstraher lag fra tiff-filer
+Her er et eksempel på en tiff-fil med tre lag:
 
-Kan det køre parallelt på ucloud?
+![Trelagstiff](../fig/stacked_tiff.tif)
 
-https://inbo.github.io/tutorials/tutorials/spatial_standards_raster/
+
+Den kan vi indlæse:
+
+```{r}
+tif <- raster::stack("../fig/stacked_tiff.tif")
+```
+Der er tre lag:
+```{r}
+raster::nlayers(tif)
+```
+De har navne:
+```{r}
+names(tif)
+```
+Og vi kan plotte dem individuelt:
+
+```{r}
+plot(tif$layer.1)
+```
+```{r}
+plot(tif$layer.2)
+```
+```{r}
+plot(tif$layer.3)
+```
+
+Vi kan også gemme dem individuelt:
+```{r, eval = F}
+writeRaster(tif$layer.3, "filnavn.tif")
+```
+
+## Noter
+
+Filen er grabset fra biblioteket `plainview`, mere specifikt er det et udsnit af
+sattelitfotos fra Landsat 8, omkring byen Poppendorf, lidt til højre for Rostock.
 
 {% include links.md %}
-
