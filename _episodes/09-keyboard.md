@@ -35,8 +35,60 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Skipping install of 'ggkeyboard' from a github remote, the SHA1 (061f0d90) has not changed since last install.
-  Use `force = TRUE` to force installation
+Downloading GitHub repo sharlagelfand/ggkeyboard@main
+~~~
+{: .output}
+
+
+
+~~~
+RcppEigen (NA -> 0.3.3.9.3) [CRAN]
+polyclip  (NA -> 1.10-4   ) [CRAN]
+ggforce   (NA -> 0.4.1    ) [CRAN]
+prismatic (NA -> 1.1.1    ) [CRAN]
+~~~
+{: .output}
+
+
+
+~~~
+Skipping 1 packages ahead of CRAN: colorspace
+~~~
+{: .output}
+
+
+
+~~~
+Installing 4 packages: RcppEigen, polyclip, ggforce, prismatic
+~~~
+{: .output}
+
+
+
+~~~
+Installing packages into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpoZ3bRt/remotes440025c2fac0/sharlagelfand-ggkeyboard-061f0d9/DESCRIPTION’ ... OK
+* preparing ‘ggkeyboard’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ggkeyboard_0.0.0.9012.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
 ~~~
 {: .output}
 
@@ -49,7 +101,17 @@ ggkeyboard(palette = keyboard_palette("t0mb3ry"))
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-09-unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in `dplyr::mutate()`:
+ℹ In argument: `text_colour = text_colour_adjust(fill,
+  palette[["text"]], adjust_text_colour)`.
+ℹ In row 1.
+Caused by error in `dplyr::case_when()`:
+! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+~~~
+{: .error}
 der er lidt at vælge imellem. Selv synes jeg denne er at foretrække.
 "full" giver os et tastatur der ligner mit.
 
@@ -59,7 +121,17 @@ ggkeyboard(full, palette = keyboard_palette("magic"), font_size = 2.75)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-09-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in `dplyr::mutate()`:
+ℹ In argument: `text_colour = text_colour_adjust(fill,
+  palette[["text"]], adjust_text_colour)`.
+ℹ In row 1.
+Caused by error in `dplyr::case_when()`:
+! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+~~~
+{: .error}
 Der er også mac-tastaturer:
 
 ~~~
@@ -67,7 +139,17 @@ ggkeyboard(mac, palette = keyboard_palette("magic"))
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-09-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in `dplyr::mutate()`:
+ℹ In argument: `text_colour = text_colour_adjust(fill,
+  palette[["text"]], adjust_text_colour)`.
+ℹ In row 1.
+Caused by error in `dplyr::case_when()`:
+! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+~~~
+{: .error}
 Man kan highligte taster. Dette er tastaturkombien for %>% 
 
 ~~~
@@ -76,7 +158,17 @@ ggkeyboard(tkl, palette = keyboard_palette("magic")) %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-09-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in `dplyr::mutate()`:
+ℹ In argument: `text_colour = text_colour_adjust(fill,
+  palette[["text"]], adjust_text_colour)`.
+ℹ In row 1.
+Caused by error in `dplyr::case_when()`:
+! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+~~~
+{: .error}
 Men hov! det ligner ikke mit tastatur?
 
 Nej, det er fordi mit tastatur følger en ISO-standard. Og som default lader det
@@ -91,7 +183,17 @@ ggkeyboard(full, layout = "iso")
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-09-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in `dplyr::mutate()`:
+ℹ In argument: `text_colour = text_colour_adjust(fill,
+  palette[["text"]], adjust_text_colour)`.
+ℹ In row 1.
+Caused by error in `dplyr::case_when()`:
+! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+~~~
+{: .error}
 Jamen det ligner stadig ikke?!
 
 Nope. Til en start skal række 3, tast 11 ikke være :;, men Æ:
@@ -119,7 +221,17 @@ ggkeyboard(dansk, layout = "iso")
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-09-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in `dplyr::mutate()`:
+ℹ In argument: `text_colour = text_colour_adjust(fill,
+  palette[["text"]], adjust_text_colour)`.
+ℹ In row 1.
+Caused by error in `dplyr::case_when()`:
+! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+~~~
+{: .error}
 
 Hvorfor Æ'et ser underligt ud? Det har formentlig noget at gøre med at den default
 skrifttype pakken bruger, gør mærkelige ting med Æ. Det har vi ikke kigget nærmere

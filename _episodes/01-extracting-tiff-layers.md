@@ -5,24 +5,122 @@ title: "Extracting tiff-layers"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "Hvordan ekstraherer jeg lag fra en geotiff fil?"
 objectives:
-- "First learning objective. (FIXME)"
+- "FIXME"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "FIXME"
 ---
 
 
 
 
 
-find en eksempel tiff-fil til at ekstrahere lag på.
+Tiff-filer kan indeholde lag. Vi er stødt på dem i en situation hvor
+en studerende havde behov for at trække lagene ud af en 
+GeoTIFF fil. 
 
-Ekstraher lag fra tiff-filer
+Her er et eksempel på en tiff-fil med tre lag:
 
-Kan det køre parallelt på ucloud?
+![Trelagstiff](../fig/stacked_tiff.tif)
 
-https://inbo.github.io/tutorials/tutorials/spatial_standards_raster/
+
+Den kan vi indlæse:
+
+
+~~~
+tif <- raster::stack("../fig/stacked_tiff.tif")
+~~~
+{: .language-r}
+
+
+
+~~~
+Warning: ../fig/stacked_tiff.tif: No such file or directory (GDAL error 4)
+~~~
+{: .warning}
+
+
+
+~~~
+Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
+~~~
+{: .error}
+Der er tre lag:
+
+~~~
+raster::nlayers(tif)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'nlayers': object 'tif' not found
+~~~
+{: .error}
+De har navne:
+
+~~~
+names(tif)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'tif' not found
+~~~
+{: .error}
+Og vi kan plotte dem individuelt:
+
+
+~~~
+plot(tif$layer.1)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in plot(tif$layer.1): object 'tif' not found
+~~~
+{: .error}
+
+~~~
+plot(tif$layer.2)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in plot(tif$layer.2): object 'tif' not found
+~~~
+{: .error}
+
+~~~
+plot(tif$layer.3)
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in plot(tif$layer.3): object 'tif' not found
+~~~
+{: .error}
+
+Vi kan også gemme dem individuelt:
+
+~~~
+writeRaster(tif$layer.3, "filnavn.tif")
+~~~
+{: .language-r}
+
+## Noter
+
+Filen er grabset fra biblioteket `plainview`, mere specifikt er det et udsnit af
+sattelitfotos fra Landsat 8, omkring byen Poppendorf, lidt til højre for Rostock.
 
 {% include links.md %}
-
