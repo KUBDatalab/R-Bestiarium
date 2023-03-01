@@ -128,7 +128,7 @@ Downloading GitHub repo wilkelab/cowplot@HEAD
 ~~~
 
 ── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpsGtXZa/remotes42cb77cd2e49/wilkelab-cowplot-1f35f38/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/RtmpTYxS9T/remotes30db508a0322/wilkelab-cowplot-1f35f38/DESCRIPTION’ ... OK
 * preparing ‘cowplot’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts
@@ -194,7 +194,7 @@ Skipping 1 packages ahead of CRAN: colorspace
 
 ~~~
 ── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpsGtXZa/remotes42cb22152693/clauswilke-colorblindr-e6730be/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/RtmpTYxS9T/remotes30db5970a190/clauswilke-colorblindr-e6730be/DESCRIPTION’ ... OK
 * preparing ‘colorblindr’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts
