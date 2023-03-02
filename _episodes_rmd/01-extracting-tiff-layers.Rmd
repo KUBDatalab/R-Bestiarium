@@ -19,6 +19,8 @@ knitr_fig_path("01-")
 ```{r terra, include = FALSE}
 install.packages("proj4")
 library(proj4)
+install.packages("rgdal")
+library(rgdal)
 install.packages("terra")
 library(terra)
 ```
