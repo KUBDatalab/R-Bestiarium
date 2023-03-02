@@ -13,8 +13,23 @@ keypoints:
 ```{r SETUP, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("01-")
+```
+
+
+```{r terra, include = FALSE}
+install.packages("terro")
 library(terra)
+```
+
+
+```{r sp, include = FALSE}
+install.packages("sp")
 library(sp)
+```
+
+
+```{r raster, include = FALSE}
+install.packages("raster")
 library(raster)
 
 ```
