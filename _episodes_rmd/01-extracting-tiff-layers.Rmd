@@ -13,8 +13,10 @@ keypoints:
 ```{r SETUP, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("01-")
-install.packages("raster")
+library(terra)
+library(sp)
 library(raster)
+
 ```
 
 ```{r setup, include=FALSE}
