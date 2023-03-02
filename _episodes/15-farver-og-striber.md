@@ -119,30 +119,8 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Downloading GitHub repo wilkelab/cowplot@HEAD
-~~~
-{: .output}
-
-
-
-~~~
-
-── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpTYxS9T/remotes30db508a0322/wilkelab-cowplot-1f35f38/DESCRIPTION’ ... OK
-* preparing ‘cowplot’:
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-Omitted ‘LazyData’ from DESCRIPTION
-* building ‘cowplot_1.1.2.tar.gz’
-~~~
-{: .output}
-
-
-
-~~~
-Installing package into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
+Skipping install of 'cowplot' from a github remote, the SHA1 (1f35f385) has not changed since last install.
+  Use `force = TRUE` to force installation
 ~~~
 {: .output}
 
@@ -178,37 +156,8 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Downloading GitHub repo clauswilke/colorblindr@HEAD
-~~~
-{: .output}
-
-
-
-
-~~~
-Skipping 1 packages ahead of CRAN: colorspace
-~~~
-{: .output}
-
-
-
-~~~
-── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpTYxS9T/remotes30db5970a190/clauswilke-colorblindr-e6730be/DESCRIPTION’ ... OK
-* preparing ‘colorblindr’:
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-Omitted ‘LazyData’ from DESCRIPTION
-* building ‘colorblindr_0.1.0.tar.gz’
-~~~
-{: .output}
-
-
-
-~~~
-Installing package into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
+Skipping install of 'colorblindr' from a github remote, the SHA1 (e6730be3) has not changed since last install.
+  Use `force = TRUE` to force installation
 ~~~
 {: .output}
 cvd_grid bruger som udgangspunkt det sidste plot vi lavede.
@@ -228,10 +177,9 @@ Loading required package: colorspace
 
 
 ~~~
-Error in value[[3L]](cond): Package 'colorspace' version 2.1.0 cannot be unloaded:
- Error in unloadNamespace(package) : namespace 'colorspace' is imported by 'munsell' so cannot be unloaded
+Loading required package: ggplot2
 ~~~
-{: .error}
+{: .output}
 
 
 
@@ -247,12 +195,7 @@ cvd_grid()
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in cvd_grid(): could not find function "cvd_grid"
-~~~
-{: .error}
+<img src="../fig/rmd-15-unnamed-chunk-8-2.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
 
 Hvordan bruger vi så en palette i et plot?
 

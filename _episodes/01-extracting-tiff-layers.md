@@ -22,28 +22,22 @@ GeoTIFF fil.
 
 Her er et eksempel på en tiff-fil med tre lag:
 
-![Trelagstiff](../fig/stacked_tiff.tif)
+![Trelagstiff](fig/stacked_tiff.tif)
 
 
 Den kan vi indlæse:
 
 
 ~~~
-tif <- raster::stack("../fig/stacked_tiff.tif")
+tif <- raster::stack("fig/stacked_tiff.tif")
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Warning: ../fig/stacked_tiff.tif: No such file or directory (GDAL error 4)
-~~~
-{: .warning}
-
-
-
-~~~
-Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
+Error in dyn.load(file, DLLpath = DLLpath, ...): unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
+  libproj.so.15: cannot open shared object file: No such file or directory
 ~~~
 {: .error}
 Der er tre lag:
@@ -56,7 +50,8 @@ raster::nlayers(tif)
 
 
 ~~~
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'nlayers': object 'tif' not found
+Error in dyn.load(file, DLLpath = DLLpath, ...): unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
+  libproj.so.15: cannot open shared object file: No such file or directory
 ~~~
 {: .error}
 De har navne:
@@ -122,5 +117,11 @@ writeRaster(tif$layer.3, "filnavn.tif")
 
 Filen er grabset fra biblioteket `plainview`, mere specifikt er det et udsnit af
 sattelitfotos fra Landsat 8, omkring byen Poppendorf, lidt til højre for Rostock.
+
+Husk også at ikke alle TIFF filer har lag. Så hvis du kun kan trække et enkelt lag ud, så kan det skyldes at der kun er et.
+
+De her lagdelte TIFF filer bruges ofte  til at gennem forskellige "kanaler" i billedet.
+
+Det kan være en kanal med landskabet set i IR-spektret. Eller tre kanaler med hver af farverne rød, grøn og blå. Vælger man kun at kigge på det grønne lag, kan det være lettere at identificere hvor vegetationen er.
 
 {% include links.md %}

@@ -33,29 +33,8 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Downloading GitHub repo dirkschumacher/ompr.highs@HEAD
-~~~
-{: .output}
-
-
-
-~~~
-
-── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpP2kcKB/remotes2fa749a47598/dirkschumacher-ompr.highs-14bc8f0/DESCRIPTION’ ... OK
-* preparing ‘ompr.highs’:
-* checking DESCRIPTION meta-information ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘ompr.highs_0.0.1.9000.tar.gz’
-~~~
-{: .output}
-
-
-
-~~~
-Installing package into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
+Skipping install of 'ompr.highs' from a github remote, the SHA1 (14bc8f05) has not changed since last install.
+  Use `force = TRUE` to force installation
 ~~~
 {: .output}
 
@@ -66,13 +45,6 @@ Installing package into '/home/runner/work/_temp/Library'
 (as 'lib' is unspecified)
 Installing package into '/home/runner/work/_temp/Library'
 (as 'lib' is unspecified)
-~~~
-{: .output}
-
-
-
-~~~
-also installing the dependencies 'registry', 'ROI', 'slam'
 ~~~
 {: .output}
 
