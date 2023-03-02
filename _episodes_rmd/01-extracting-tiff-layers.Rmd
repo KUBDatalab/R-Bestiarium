@@ -17,7 +17,7 @@ knitr_fig_path("01-")
 
 
 ```{r terra, include = FALSE}
-install.packages("terro")
+install.packages("terra")
 library(terra)
 ```
 
