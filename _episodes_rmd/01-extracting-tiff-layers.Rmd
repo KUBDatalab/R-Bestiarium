@@ -13,6 +13,7 @@ keypoints:
 ```{r SETUP, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("01-")
+install.packages("raster")
 library(raster)
 ```
 
@@ -32,7 +33,7 @@ Her er et eksempel på en tiff-fil med tre lag:
 Den kan vi indlæse:
 
 ```{r}
-tif <- raster::stack("fig/stacked_tiff.tif")
+tif <- stack("fig/stacked_tiff.tif")
 ```
 Der er tre lag:
 ```{r}
