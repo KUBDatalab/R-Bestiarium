@@ -10,9 +10,10 @@ keypoints:
 - "FIXME"
 ---
 
-```{r, include = FALSE}
+```{r SETUP, include = FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("01-")
+library(raster)
 ```
 
 ```{r setup, include=FALSE}
