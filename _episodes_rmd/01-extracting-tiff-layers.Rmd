@@ -16,11 +16,16 @@ knitr_fig_path("01-")
 ```
 
 
-```{r terra, include = FALSE}
+```{r proj4rgdal, include = FALSE}
 install.packages("proj4")
 library(proj4)
 install.packages("rgdal")
 library(rgdal)
+```
+
+
+```{r terra, include = FALSE}
+
 install.packages("terra")
 library(terra)
 ```
@@ -54,7 +59,7 @@ Her er et eksempel på en tiff-fil med tre lag:
 Den kan vi indlæse:
 
 ```{r}
-tif <- stack("fig/stacked_tiff.tif")
+tif <- stack("../fig/stacked_tiff.tif")
 ```
 Der er tre lag:
 ```{r}
