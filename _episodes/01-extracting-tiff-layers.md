@@ -25,6 +25,9 @@ keypoints:
 
 
 
+
+
+
 Tiff-filer kan indeholde lag. Vi er stødt på dem i en situation hvor
 en studerende havde behov for at trække lagene ud af en 
 GeoTIFF fil. 
@@ -38,23 +41,9 @@ Den kan vi indlæse:
 
 
 ~~~
-tif <- stack("fig/stacked_tiff.tif")
+tif <- stack("../fig/stacked_tiff.tif")
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning: fig/stacked_tiff.tif: No such file or directory (GDAL error 4)
-~~~
-{: .warning}
-
-
-
-~~~
-Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
-~~~
-{: .error}
 Der er tre lag:
 
 ~~~
@@ -65,9 +54,9 @@ raster::nlayers(tif)
 
 
 ~~~
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'nlayers': object 'tif' not found
+[1] 3
 ~~~
-{: .error}
+{: .output}
 De har navne:
 
 ~~~
@@ -78,9 +67,9 @@ names(tif)
 
 
 ~~~
-Error in eval(expr, envir, enclos): object 'tif' not found
+[1] "layer.1" "layer.2" "layer.3"
 ~~~
-{: .error}
+{: .output}
 Og vi kan plotte dem individuelt:
 
 
@@ -89,36 +78,21 @@ plot(tif$layer.1)
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'plot': object 'tif' not found
-~~~
-{: .error}
+<img src="../fig/rmd-01-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
 
 ~~~
 plot(tif$layer.2)
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'plot': object 'tif' not found
-~~~
-{: .error}
+<img src="../fig/rmd-01-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
 
 ~~~
 plot(tif$layer.3)
 ~~~
 {: .language-r}
 
-
-
-~~~
-Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'plot': object 'tif' not found
-~~~
-{: .error}
+<img src="../fig/rmd-01-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
 
 Vi kan også gemme dem individuelt:
 
