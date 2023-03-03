@@ -16,6 +16,15 @@ keypoints:
 
 
 
+
+
+
+
+
+
+
+
+
 Tiff-filer kan indeholde lag. Vi er stødt på dem i en situation hvor
 en studerende havde behov for at trække lagene ud af en 
 GeoTIFF fil. 
@@ -29,15 +38,21 @@ Den kan vi indlæse:
 
 
 ~~~
-tif <- raster::stack("fig/stacked_tiff.tif")
+tif <- stack("fig/stacked_tiff.tif")
 ~~~
 {: .language-r}
 
 
 
 ~~~
-Error in dyn.load(file, DLLpath = DLLpath, ...): unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
-  libproj.so.15: cannot open shared object file: No such file or directory
+Warning: fig/stacked_tiff.tif: No such file or directory (GDAL error 4)
+~~~
+{: .warning}
+
+
+
+~~~
+Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
 ~~~
 {: .error}
 Der er tre lag:
@@ -50,8 +65,7 @@ raster::nlayers(tif)
 
 
 ~~~
-Error in dyn.load(file, DLLpath = DLLpath, ...): unable to load shared object '/home/runner/work/_temp/Library/terra/libs/terra.so':
-  libproj.so.15: cannot open shared object file: No such file or directory
+Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'nlayers': object 'tif' not found
 ~~~
 {: .error}
 De har navne:
@@ -78,7 +92,7 @@ plot(tif$layer.1)
 
 
 ~~~
-Error in plot(tif$layer.1): object 'tif' not found
+Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'plot': object 'tif' not found
 ~~~
 {: .error}
 
@@ -90,7 +104,7 @@ plot(tif$layer.2)
 
 
 ~~~
-Error in plot(tif$layer.2): object 'tif' not found
+Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'plot': object 'tif' not found
 ~~~
 {: .error}
 
@@ -102,7 +116,7 @@ plot(tif$layer.3)
 
 
 ~~~
-Error in plot(tif$layer.3): object 'tif' not found
+Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'plot': object 'tif' not found
 ~~~
 {: .error}
 
