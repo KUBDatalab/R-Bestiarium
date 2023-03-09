@@ -5,7 +5,8 @@ title: "Farver og striber"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "Hvordan laver jeg mine egne farveskalaer til ggplot?"
+- "Hvordan vælger jeg farver der tager hensyn til farveblinde?"
 objectives:
 - "First learning objective. (FIXME)"
 keypoints:
@@ -85,82 +86,23 @@ view_palette(wesanderson::wes_palettes$FantasticFox1)
 {: .language-r}
 
 <img src="../fig/rmd-15-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+
+## Farveblindhed
+
 Det er ofte en god ide at tjekke hvordan ens palette bliver opfattet af farveblinde.
 
-Pakken colorblindr giver et bud på det - og det er nok kun et bud:
+Pakken colorblindr giver et bud på det. Den skal installeres fra github:
 
 
 ~~~
 library(devtools)
-~~~
-{: .language-r}
-
-
-
-~~~
-Loading required package: usethis
-~~~
-{: .output}
-
-
-
-~~~
 remotes::install_github("wilkelab/cowplot")
-~~~
-{: .language-r}
-
-
-
-~~~
-Using github PAT from envvar GITHUB_PAT
-~~~
-{: .output}
-
-
-
-~~~
-Skipping install of 'cowplot' from a github remote, the SHA1 (1f35f385) has not changed since last install.
-  Use `force = TRUE` to force installation
-~~~
-{: .output}
-
-
-
-~~~
 install.packages("colorspace", repos = "http://R-Forge.R-project.org")
-~~~
-{: .language-r}
-
-
-
-~~~
-Installing package into '/home/runner/work/_temp/Library'
-(as 'lib' is unspecified)
-~~~
-{: .output}
-
-
-
-~~~
 install_github("clauswilke/colorblindr")
 ~~~
 {: .language-r}
 
-
-
-~~~
-Using github PAT from envvar GITHUB_PAT
-~~~
-{: .output}
-
-
-
-~~~
-Skipping install of 'colorblindr' from a github remote, the SHA1 (e6730be3) has not changed since last install.
-  Use `force = TRUE` to force installation
-~~~
-{: .output}
-cvd_grid bruger som udgangspunkt det sidste plot vi lavede.
+Hvorefter vi kan indlæse den.
 
 ~~~
 library(colorblindr)
@@ -181,7 +123,7 @@ Loading required package: ggplot2
 ~~~
 {: .output}
 
-
+cvd_grid vil vise os bruger som udgangspunkt det sidste plot vi lavede.
 
 ~~~
 view_palette(wesanderson::wes_palettes$FantasticFox1)
@@ -197,8 +139,87 @@ cvd_grid()
 
 <img src="../fig/rmd-15-unnamed-chunk-8-2.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
 
-Hvordan bruger vi så en palette i et plot?
+Og det var ethvert plot:
 
+
+~~~
+ggplot(mtcars, aes(cyl, mpg, color = gear)) + 
+  geom_point()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-15-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+
+~~~
+cvd_grid()
+~~~
+{: .language-r}
+
+<img src="../fig/rmd-15-unnamed-chunk-9-2.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+
+Det en person med normalt farvesyn får her, er et estimat af hvordan et plot vil se ud ved forskellige typer af farveblindhed. Og det er nok blot et estimat, men bedre end ingenting.
+
+Der findes forskellige typer af farveblindhed, og derfor får vi fire forskellige plots, et for hver af fire typer:
+
+* Tritanomaly: blå-gul farveblindhed. under 0.01%. Rammer både mænd og kvinder.
+* Deutoanomaly: rød-grøn farveblindhed. ca. 6% af mænd
+* protanomaly: Rød-grøn farveblindhed- ca. 2% af mænd
+* Desaturated forsøger så vidt vi kan gennemskue af pakken, at simulere
+total farveblindhed (akromatopsi). Rammer 0.003% 
+
+### Er det noget man skal tage hensyn til? Nej og ja. 
+
+Der er ting det kan være næsten umulige at visualisere i
+paletter der tager hensyn til de forskellige former for
+farveblindhed. Og helt umulige hvis de skal tage hensyn til 
+alle varianterne heraf.
+
+Der er også plots der som deres primære formål har at være
+spektakulære. De kan være helt håbløse at lave i udgaver der gør alle glade.
+
+Men når plottets formål er at formidle data, snarere end at
+være kunst, bør man. Ikke kun for at tage hensyn til
+farveblinde, men også fordi farvevalg der tager det hensyn,
+typisk gør det lettere folk læsere med normalt farvesyn at se
+forskel på det man vil vise, og fordi farverne også bedre
+overlever et print i sort/hvid.
+
+## Hvordan bruger vi så en palette i et plot?
+
+Vi tilføjer en linie til vores plot `scale_fill_manual` eksempelvis:
+
+
+~~~
+mtcars %>% 
+  ggplot(aes(hp, fill = factor(am))) +
+  geom_histogram(position = "dodge") +
+  scale_fill_manual(values=wesanderson::wes_palettes$FantasticFox1)
+~~~
+{: .language-r}
+
+
+
+~~~
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+~~~
+{: .output}
+
+<img src="../fig/rmd-15-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+
+~~~
+scale_c
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in eval(expr, envir, enclos): object 'scale_c' not found
+~~~
+{: .error}
+
+## rcolorbrewer
+Der bør også være noget om rcolorbrewer
 
 {% include links.md %}
 

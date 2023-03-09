@@ -34,7 +34,7 @@ GeoTIFF fil.
 
 Her er et eksempel på en tiff-fil med tre lag:
 
-![Trelagstiff](fig/stacked_tiff.tif)
+![Trelagstiff](../fig/stacked_tiff.tif)
 
 
 Den kan vi indlæse:
