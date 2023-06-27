@@ -1,0 +1,73 @@
+---
+title: "Animationer"
+teaching: 0
+exercises: 0
+questions:
+- "Key question (FIXME)"
+objectives:
+- "First learning objective. (FIXME)"
+keypoints:
+- "First key point. Brief Answer to questions. (FIXME)"
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("17-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Særligt når vi vil visualisere data der har en 
+tidskomponent, kan det være nyttigt at animere data.
+
+
+
+Vi skal bruge to pakker:
+```{r}
+library(ggplot2)
+library(gganimate)
+```
+
+```{r}
+library(gapminder)
+```
+
+```{r}
+data <- gapminder %>% 
+  filter(continent == "Europe") %>% 
+  group_by(year) %>% 
+  mutate(rank = rank(gdpPercap)) %>% 
+  ungroup()
+  
+
+data %>% 
+  ggplot()
+
+static_plot <- data %>% 
+  ggplot(aes(x=rank, y=gdpPercap)) +
+  geom_col() +
+  facet_wrap(~year) +
+  aes(fill = country) +
+  geom_text(col = "gray13",
+            hjust = "right",
+            aes(label = country),
+            y = -5) +
+  theme(legend.position = "none") +
+  coord_flip() +
+  scale_y_reverse() +  
+  labs(fill = NULL)
+  
+static_plot +
+  facet_null() +
+  aes(group = country) +
+  transition_time(year)
+static_plot +
+  transition_states(year, transition_length = 4, state_length = 1)
+```
+
+
+
+{% include links.md %}
+
