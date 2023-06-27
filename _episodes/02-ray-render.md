@@ -20,7 +20,10 @@ Enten skal det kun være eksempelkode. Eller også skal jeg uden om problemerne
 med at der ikke er et grafisk interface når dette renderes.
 
 This:
-<img src="../fig/taiwan.jpg" alt="plot of chunk unnamed-chunk-2" width="400px" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/taiwan.jpg" alt="plot of chunk unnamed-chunk-2" width="400px" />
+<p class="caption">plot of chunk unnamed-chunk-2</p>
+</div>
 
 Shaded relief map of Taiwan. Made by https://mobile.twitter.com/researchremora
 
@@ -42,18 +45,32 @@ Loading required package: sp
 
 
 ~~~
-Please note that rgdal will be retired during 2023,
+The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,
+which was just loaded, will retire in October 2023.
+Please refer to R-spatial evolution reports for details, especially
+https://r-spatial.org/r/2023/05/15/evolution4.html.
+It may be desirable to make the sf package available;
+package maintainers should consider adding sf to Suggests:.
+The sp package is now running under evolution status 2
+     (status 2 uses the sf package in place of rgdal)
+~~~
+{: .output}
+
+
+
+~~~
+Please note that rgdal will be retired during October 2023,
 plan transition to sf/stars/terra functions using GDAL and PROJ
 at your earliest convenience.
-See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-spatial/evolution
-rgdal: version: 1.6-5, (SVN revision 1199)
+See https://r-spatial.org/r/2023/05/15/evolution4.html and https://github.com/r-spatial/evolution
+rgdal: version: 1.6-7, (SVN revision 1203)
 Geospatial Data Abstraction Library extensions to R successfully loaded
 Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
 Path to GDAL shared files: /usr/share/gdal
 GDAL binary built with GEOS: TRUE 
 Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
 Path to PROJ shared files: /usr/share/proj
-Linking to sp version:1.6-0
+Linking to sp version:2.0-0
 To mute warnings of possible GDAL/OSR exportToProj4() degradation,
 use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.
 ~~~
@@ -102,35 +119,16 @@ library(rayshader)
 
 
 ~~~
-Error in dyn.load(dynlib <- getDynlib(dir)) : 
-  unable to load shared object '/home/runner/work/_temp/Library/rgl/libs/rgl.so':
-  libGLU.so.1: cannot open shared object file: No such file or directory
-~~~
-{: .output}
-
-
-
-~~~
-Warning: Loading rgl's DLL failed.
+Warning in rgl.init(initValue, onlyNULL): RGL: unable to open X11 display
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: Trying without OpenGL...
+Warning: 'rgl.init' failed, running with 'rgl.useNULL = TRUE'.
 ~~~
 {: .warning}
-
-
-
-~~~
-Error: package or namespace load failed for 'rayshader':
- .onLoad failed in loadNamespace() for 'rgl', details:
-  call: rgl.init(initValue, onlyNULL)
-  error: OpenGL is not available in this build
-~~~
-{: .error}
 
 
 
@@ -142,11 +140,10 @@ library(elevatr)
 
 
 ~~~
-Error: package or namespace load failed for 'elevatr' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/home/runner/work/_temp/Library/units/libs/units.so':
-  libudunits2.so.0: cannot open shared object file: No such file or directory
+elevatr v0.4.5 NOTE: This is the last version of 'elevatr' that will use the 
+'sp' and 'raster' packages. The next release will switch to 'sf' and 'terra'.
 ~~~
-{: .error}
+{: .output}
 
 
 
@@ -218,7 +215,10 @@ render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, h
 ~~~
 {: .language-r}
 
-<img src="../fig/denmark2.png" alt="plot of chunk unnamed-chunk-9" width="400px" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/denmark2.png" alt="plot of chunk unnamed-chunk-9" width="400px" />
+<p class="caption">plot of chunk unnamed-chunk-9</p>
+</div>
 
 {% include links.md %}
 

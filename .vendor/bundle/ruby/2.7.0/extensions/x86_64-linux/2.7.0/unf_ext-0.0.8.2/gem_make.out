@@ -1,5 +1,5 @@
 current directory: /home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
-/opt/hostedtoolcache/Ruby/2.7.7/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.7/x64/lib/ruby/2.7.0 -r ./siteconf20230309-6328-jngfq5.rb extconf.rb
+/opt/hostedtoolcache/Ruby/2.7.8/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.8/x64/lib/ruby/2.7.0 -r ./siteconf20230627-16850-lp9eg6.rb extconf.rb
 checking for -lstdc++... yes
 creating Makefile
 
@@ -7,82 +7,100 @@ current directory: /home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ru
 make "DESTDIR=" clean
 make[1]: Entering directory '/home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
 Makefile:176: warning: overriding recipe for target 'clean'
-P†<çU:176: warning: ignoring old recipe for target 'clean'
+phnt€U:176: warning: ignoring old recipe for target 'clean'
 Makefile:183: warning: overriding recipe for target 'distclean'
-P†<çU:183: warning: ignoring old recipe for target 'distclean'
+phnt€U:183: warning: ignoring old recipe for target 'distclean'
 Makefile:191: warning: overriding recipe for target 'install-so'
-P†<çU:191: warning: ignoring old recipe for target 'install-so'
+phnt€U:191: warning: ignoring old recipe for target 'install-so'
 Makefile:201: warning: overriding recipe for target 'pre-install-rb-default'
-P†<çU:201: warning: ignoring old recipe for target 'pre-install-rb-default'
+phnt€U:201: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:203: warning: overriding recipe for target '.sitearchdir.time'
-P†<çU:203: warning: ignoring old recipe for target '.sitearchdir.time'
+phnt€U:203: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:213: warning: overriding recipe for target '.cc.o'
-P†<çU:213: warning: ignoring old recipe for target '.cc.o'
+phnt€U:213: warning: ignoring old recipe for target '.cc.o'
 Makefile:217: warning: overriding recipe for target '.cc.S'
-P†<çU:217: warning: ignoring old recipe for target '.cc.S'
+phnt€U:217: warning: ignoring old recipe for target '.cc.S'
 Makefile:221: warning: overriding recipe for target '.mm.o'
-P†<çU:221: warning: ignoring old recipe for target '.mm.o'
+phnt€U:221: warning: ignoring old recipe for target '.mm.o'
 Makefile:225: warning: overriding recipe for target '.mm.S'
-P†<çU:225: warning: ignoring old recipe for target '.mm.S'
+phnt€U:225: warning: ignoring old recipe for target '.mm.S'
 Makefile:229: warning: overriding recipe for target '.cxx.o'
-P†<çU:229: warning: ignoring old recipe for target '.cxx.o'
+phnt€U:229: warning: ignoring old recipe for target '.cxx.o'
 Makefile:233: warning: overriding recipe for target '.cxx.S'
-P†<çU:233: warning: ignoring old recipe for target '.cxx.S'
+phnt€U:233: warning: ignoring old recipe for target '.cxx.S'
 Makefile:237: warning: overriding recipe for target '.cpp.o'
-P†<çU:237: warning: ignoring old recipe for target '.cpp.o'
+phnt€U:237: warning: ignoring old recipe for target '.cpp.o'
 Makefile:241: warning: overriding recipe for target '.cpp.S'
-P†<çU:241: warning: ignoring old recipe for target '.cpp.S'
+phnt€U:241: warning: ignoring old recipe for target '.cpp.S'
 Makefile:245: warning: overriding recipe for target '.c.o'
-P†<çU:245: warning: ignoring old recipe for target '.c.o'
+phnt€U:245: warning: ignoring old recipe for target '.c.o'
 Makefile:249: warning: overriding recipe for target '.c.S'
-P†<çU:249: warning: ignoring old recipe for target '.c.S'
+phnt€U:249: warning: ignoring old recipe for target '.c.S'
 Makefile:253: warning: overriding recipe for target '.m.o'
-P†<çU:253: warning: ignoring old recipe for target '.m.o'
+phnt€U:253: warning: ignoring old recipe for target '.m.o'
 Makefile:257: warning: overriding recipe for target '.m.S'
-P†<çU:257: warning: ignoring old recipe for target '.m.S'
+phnt€U:257: warning: ignoring old recipe for target '.m.S'
 Makefile:261: warning: overriding recipe for target 'unf_ext.so'
-P†<çU:261: warning: ignoring old recipe for target 'unf_ext.so'
+phnt€U:261: warning: ignoring old recipe for target 'unf_ext.so'
 make[1]: Leaving directory '/home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
 
 current directory: /home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
 make "DESTDIR="
 make[1]: Entering directory '/home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
 Makefile:176: warning: overriding recipe for target 'clean'
-PÆEÀ}U:176: warning: ignoring old recipe for target 'clean'
+pØ
+E²U:176: warning: ignoring old recipe for target 'clean'
 Makefile:183: warning: overriding recipe for target 'distclean'
-PÆEÀ}U:183: warning: ignoring old recipe for target 'distclean'
+pØ
+E²U:183: warning: ignoring old recipe for target 'distclean'
 Makefile:191: warning: overriding recipe for target 'install-so'
-PÆEÀ}U:191: warning: ignoring old recipe for target 'install-so'
+pØ
+E²U:191: warning: ignoring old recipe for target 'install-so'
 Makefile:201: warning: overriding recipe for target 'pre-install-rb-default'
-PÆEÀ}U:201: warning: ignoring old recipe for target 'pre-install-rb-default'
+pØ
+E²U:201: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:203: warning: overriding recipe for target '.sitearchdir.time'
-PÆEÀ}U:203: warning: ignoring old recipe for target '.sitearchdir.time'
+pØ
+E²U:203: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:213: warning: overriding recipe for target '.cc.o'
-PÆEÀ}U:213: warning: ignoring old recipe for target '.cc.o'
+pØ
+E²U:213: warning: ignoring old recipe for target '.cc.o'
 Makefile:217: warning: overriding recipe for target '.cc.S'
-PÆEÀ}U:217: warning: ignoring old recipe for target '.cc.S'
+pØ
+E²U:217: warning: ignoring old recipe for target '.cc.S'
 Makefile:221: warning: overriding recipe for target '.mm.o'
-PÆEÀ}U:221: warning: ignoring old recipe for target '.mm.o'
+pØ
+E²U:221: warning: ignoring old recipe for target '.mm.o'
 Makefile:225: warning: overriding recipe for target '.mm.S'
-PÆEÀ}U:225: warning: ignoring old recipe for target '.mm.S'
+pØ
+E²U:225: warning: ignoring old recipe for target '.mm.S'
 Makefile:229: warning: overriding recipe for target '.cxx.o'
-PÆEÀ}U:229: warning: ignoring old recipe for target '.cxx.o'
+pØ
+E²U:229: warning: ignoring old recipe for target '.cxx.o'
 Makefile:233: warning: overriding recipe for target '.cxx.S'
-PÆEÀ}U:233: warning: ignoring old recipe for target '.cxx.S'
+pØ
+E²U:233: warning: ignoring old recipe for target '.cxx.S'
 Makefile:237: warning: overriding recipe for target '.cpp.o'
-PÆEÀ}U:237: warning: ignoring old recipe for target '.cpp.o'
+pØ
+E²U:237: warning: ignoring old recipe for target '.cpp.o'
 Makefile:241: warning: overriding recipe for target '.cpp.S'
-PÆEÀ}U:241: warning: ignoring old recipe for target '.cpp.S'
+pØ
+E²U:241: warning: ignoring old recipe for target '.cpp.S'
 Makefile:245: warning: overriding recipe for target '.c.o'
-PÆEÀ}U:245: warning: ignoring old recipe for target '.c.o'
+pØ
+E²U:245: warning: ignoring old recipe for target '.c.o'
 Makefile:249: warning: overriding recipe for target '.c.S'
-PÆEÀ}U:249: warning: ignoring old recipe for target '.c.S'
+pØ
+E²U:249: warning: ignoring old recipe for target '.c.S'
 Makefile:253: warning: overriding recipe for target '.m.o'
-PÆEÀ}U:253: warning: ignoring old recipe for target '.m.o'
+pØ
+E²U:253: warning: ignoring old recipe for target '.m.o'
 Makefile:257: warning: overriding recipe for target '.m.S'
-PÆEÀ}U:257: warning: ignoring old recipe for target '.m.S'
+pØ
+E²U:257: warning: ignoring old recipe for target '.m.S'
 Makefile:261: warning: overriding recipe for target 'unf_ext.so'
-PÆEÀ}U:261: warning: ignoring old recipe for target 'unf_ext.so'
+pØ
+E²U:261: warning: ignoring old recipe for target 'unf_ext.so'
 compiling unf.cc
 linking shared-object unf_ext.so
 make[1]: Leaving directory '/home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
@@ -91,40 +109,40 @@ current directory: /home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ru
 make "DESTDIR=" install
 make[1]: Entering directory '/home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
 Makefile:176: warning: overriding recipe for target 'clean'
-P&°7DV:176: warning: ignoring old recipe for target 'clean'
+p8.ÝÀU:176: warning: ignoring old recipe for target 'clean'
 Makefile:183: warning: overriding recipe for target 'distclean'
-P&°7DV:183: warning: ignoring old recipe for target 'distclean'
+p8.ÝÀU:183: warning: ignoring old recipe for target 'distclean'
 Makefile:191: warning: overriding recipe for target 'install-so'
-P&°7DV:191: warning: ignoring old recipe for target 'install-so'
+p8.ÝÀU:191: warning: ignoring old recipe for target 'install-so'
 Makefile:201: warning: overriding recipe for target 'pre-install-rb-default'
-P&°7DV:201: warning: ignoring old recipe for target 'pre-install-rb-default'
+p8.ÝÀU:201: warning: ignoring old recipe for target 'pre-install-rb-default'
 Makefile:203: warning: overriding recipe for target '.sitearchdir.time'
-P&°7DV:203: warning: ignoring old recipe for target '.sitearchdir.time'
+p8.ÝÀU:203: warning: ignoring old recipe for target '.sitearchdir.time'
 Makefile:213: warning: overriding recipe for target '.cc.o'
-P&°7DV:213: warning: ignoring old recipe for target '.cc.o'
+p8.ÝÀU:213: warning: ignoring old recipe for target '.cc.o'
 Makefile:217: warning: overriding recipe for target '.cc.S'
-P&°7DV:217: warning: ignoring old recipe for target '.cc.S'
+p8.ÝÀU:217: warning: ignoring old recipe for target '.cc.S'
 Makefile:221: warning: overriding recipe for target '.mm.o'
-P&°7DV:221: warning: ignoring old recipe for target '.mm.o'
+p8.ÝÀU:221: warning: ignoring old recipe for target '.mm.o'
 Makefile:225: warning: overriding recipe for target '.mm.S'
-P&°7DV:225: warning: ignoring old recipe for target '.mm.S'
+p8.ÝÀU:225: warning: ignoring old recipe for target '.mm.S'
 Makefile:229: warning: overriding recipe for target '.cxx.o'
-P&°7DV:229: warning: ignoring old recipe for target '.cxx.o'
+p8.ÝÀU:229: warning: ignoring old recipe for target '.cxx.o'
 Makefile:233: warning: overriding recipe for target '.cxx.S'
-P&°7DV:233: warning: ignoring old recipe for target '.cxx.S'
+p8.ÝÀU:233: warning: ignoring old recipe for target '.cxx.S'
 Makefile:237: warning: overriding recipe for target '.cpp.o'
-P&°7DV:237: warning: ignoring old recipe for target '.cpp.o'
+p8.ÝÀU:237: warning: ignoring old recipe for target '.cpp.o'
 Makefile:241: warning: overriding recipe for target '.cpp.S'
-P&°7DV:241: warning: ignoring old recipe for target '.cpp.S'
+p8.ÝÀU:241: warning: ignoring old recipe for target '.cpp.S'
 Makefile:245: warning: overriding recipe for target '.c.o'
-P&°7DV:245: warning: ignoring old recipe for target '.c.o'
+p8.ÝÀU:245: warning: ignoring old recipe for target '.c.o'
 Makefile:249: warning: overriding recipe for target '.c.S'
-P&°7DV:249: warning: ignoring old recipe for target '.c.S'
+p8.ÝÀU:249: warning: ignoring old recipe for target '.c.S'
 Makefile:253: warning: overriding recipe for target '.m.o'
-P&°7DV:253: warning: ignoring old recipe for target '.m.o'
+p8.ÝÀU:253: warning: ignoring old recipe for target '.m.o'
 Makefile:257: warning: overriding recipe for target '.m.S'
-P&°7DV:257: warning: ignoring old recipe for target '.m.S'
+p8.ÝÀU:257: warning: ignoring old recipe for target '.m.S'
 Makefile:261: warning: overriding recipe for target 'unf_ext.so'
-P&°7DV:261: warning: ignoring old recipe for target 'unf_ext.so'
-/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20230309-6328-1k4ch8i
+p8.ÝÀU:261: warning: ignoring old recipe for target 'unf_ext.so'
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20230627-16850-ba47oj
 make[1]: Leaving directory '/home/runner/work/R-Bestiarium/R-Bestiarium/.vendor/bundle/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'

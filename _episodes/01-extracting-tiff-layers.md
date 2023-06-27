@@ -78,21 +78,30 @@ plot(tif$layer.1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-01-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-01-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-4</p>
+</div>
 
 ~~~
 plot(tif$layer.2)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-01-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-01-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-5</p>
+</div>
 
 ~~~
 plot(tif$layer.3)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-01-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-01-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-6</p>
+</div>
 
 Vi kan også gemme dem individuelt:
 

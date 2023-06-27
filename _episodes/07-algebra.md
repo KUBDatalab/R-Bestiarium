@@ -33,8 +33,29 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Skipping install of 'ompr.highs' from a github remote, the SHA1 (14bc8f05) has not changed since last install.
-  Use `force = TRUE` to force installation
+Downloading GitHub repo dirkschumacher/ompr.highs@HEAD
+~~~
+{: .output}
+
+
+
+~~~
+
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/Rtmp5LA8pq/remotes3c17663873ba/dirkschumacher-ompr.highs-14bc8f0/DESCRIPTION’ ... OK
+* preparing ‘ompr.highs’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ompr.highs_0.0.1.9000.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
 ~~~
 {: .output}
 
@@ -45,6 +66,13 @@ Installing package into '/home/runner/work/_temp/Library'
 (as 'lib' is unspecified)
 Installing package into '/home/runner/work/_temp/Library'
 (as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+also installing the dependencies 'registry', 'ROI', 'slam'
 ~~~
 {: .output}
 
@@ -170,6 +198,13 @@ solution <- model %>%
 ~~~
 {: .language-r}
 
+
+
+~~~
+Error in highs_solve(L = as.numeric(obj$solution), A = constraints$matrix, : unused argument (dry_run = FALSE)
+~~~
+{: .error}
+
 Og når den er færdig, kan vi kigge på resultatet.
 
 Vi fandt en optimal løsning:
@@ -182,9 +217,9 @@ solution$status
 
 
 ~~~
-[1] "optimal"
+Error in eval(expr, envir, enclos): object 'solution' not found
 ~~~
-{: .output}
+{: .error}
 
 Værdien, minimum af vores mål, er:
 
@@ -196,9 +231,9 @@ solution$objective_value
 
 
 ~~~
-[1] 5.75
+Error in eval(expr, envir, enclos): object 'solution' not found
 ~~~
-{: .output}
+{: .error}
 
 Og selve løsningen er givet ved:
 
@@ -210,9 +245,8 @@ solution$solution
 
 
 ~~~
-  x0   x1 
-0.50 2.25 
+Error in eval(expr, envir, enclos): object 'solution' not found
 ~~~
-{: .output}
+{: .error}
 
 {% include links.md %}

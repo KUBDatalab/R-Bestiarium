@@ -35,7 +35,10 @@ generate_palette("red", modification = "go_darker",
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-15-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-15-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-3</p>
+</div>
 
 ~~~
 [1] "#FF0000" "#E10000" "#C40000" "#A70000" "#8A0000" "#6D0000" "#500000"
@@ -62,7 +65,10 @@ leave blend_colour as NULL.
 ~~~
 {: .output}
 
-<img src="../fig/rmd-15-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-15-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-4</p>
+</div>
 
 ~~~
 [1] "#FF0000" "#DD0021" "#BB0043" "#990066" "#770088" "#5500AA" "#3300CC"
@@ -85,7 +91,10 @@ view_palette(wesanderson::wes_palettes$FantasticFox1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-15-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-15-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-6</p>
+</div>
 
 ## Farveblindhed
 
@@ -97,10 +106,46 @@ Pakken colorblindr giver et bud på det. Den skal installeres fra github:
 ~~~
 library(devtools)
 remotes::install_github("wilkelab/cowplot")
+~~~
+{: .language-r}
+
+
+
+~~~
+
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/Rtmp2w5TLB/remotes3a16488f7800/wilkelab-cowplot-1f35f38/DESCRIPTION’ ... OK
+* preparing ‘cowplot’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Omitted ‘LazyData’ from DESCRIPTION
+* building ‘cowplot_1.1.2.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
 install.packages("colorspace", repos = "http://R-Forge.R-project.org")
 install_github("clauswilke/colorblindr")
 ~~~
 {: .language-r}
+
+
+
+~~~
+
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/Rtmp2w5TLB/remotes3a1635e76821/clauswilke-colorblindr-e6730be/DESCRIPTION’ ... OK
+* preparing ‘colorblindr’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Omitted ‘LazyData’ from DESCRIPTION
+* building ‘colorblindr_0.1.0.tar.gz’
+~~~
+{: .output}
 
 Hvorefter vi kan indlæse den.
 
@@ -119,9 +164,10 @@ Loading required package: colorspace
 
 
 ~~~
-Loading required package: ggplot2
+Error in value[[3L]](cond): Package 'colorspace' version 2.1.0 cannot be unloaded:
+ Error in unloadNamespace(package) : namespace 'colorspace' is imported by 'munsell' so cannot be unloaded
 ~~~
-{: .output}
+{: .error}
 
 cvd_grid vil vise os bruger som udgangspunkt det sidste plot vi lavede.
 
@@ -130,14 +176,22 @@ view_palette(wesanderson::wes_palettes$FantasticFox1)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-15-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-15-unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-8</p>
+</div>
 
 ~~~
 cvd_grid()
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-15-unnamed-chunk-8-2.png" alt="plot of chunk unnamed-chunk-8" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in cvd_grid(): could not find function "cvd_grid"
+~~~
+{: .error}
 
 Og det var ethvert plot:
 
@@ -148,14 +202,26 @@ ggplot(mtcars, aes(cyl, mpg, color = gear)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-15-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in ggplot(mtcars, aes(cyl, mpg, color = gear)): could not find function "ggplot"
+~~~
+{: .error}
+
+
 
 ~~~
 cvd_grid()
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-15-unnamed-chunk-9-2.png" alt="plot of chunk unnamed-chunk-9" width="612" style="display: block; margin: auto;" />
+
+
+~~~
+Error in cvd_grid(): could not find function "cvd_grid"
+~~~
+{: .error}
 
 Det en person med normalt farvesyn får her, er et estimat af hvordan et plot vil se ud ved forskellige typer af farveblindhed. Og det er nok blot et estimat, men bedre end ingenting.
 
@@ -200,11 +266,9 @@ mtcars %>%
 
 
 ~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Error in ggplot(., aes(hp, fill = factor(am))): could not find function "ggplot"
 ~~~
-{: .output}
-
-<img src="../fig/rmd-15-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" style="display: block; margin: auto;" />
+{: .error}
 
 ~~~
 scale_c

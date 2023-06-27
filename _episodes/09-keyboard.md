@@ -35,8 +35,60 @@ Using github PAT from envvar GITHUB_PAT
 
 
 ~~~
-Skipping install of 'ggkeyboard' from a github remote, the SHA1 (061f0d90) has not changed since last install.
-  Use `force = TRUE` to force installation
+Downloading GitHub repo sharlagelfand/ggkeyboard@main
+~~~
+{: .output}
+
+
+
+~~~
+RcppEigen (NA -> 0.3.3.9.3) [CRAN]
+polyclip  (NA -> 1.10-4   ) [CRAN]
+ggforce   (NA -> 0.4.1    ) [CRAN]
+prismatic (NA -> 1.1.1    ) [CRAN]
+~~~
+{: .output}
+
+
+
+~~~
+Skipping 1 packages ahead of CRAN: colorspace
+~~~
+{: .output}
+
+
+
+~~~
+Installing 4 packages: RcppEigen, polyclip, ggforce, prismatic
+~~~
+{: .output}
+
+
+
+~~~
+Installing packages into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
+~~~
+{: .output}
+
+
+
+~~~
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpAG44xJ/remotes3b486a827f1/sharlagelfand-ggkeyboard-061f0d9/DESCRIPTION’ ... OK
+* preparing ‘ggkeyboard’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+* building ‘ggkeyboard_0.0.0.9012.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
+Installing package into '/home/runner/work/_temp/Library'
+(as 'lib' is unspecified)
 ~~~
 {: .output}
 
@@ -57,7 +109,7 @@ Error in `dplyr::mutate()`:
   palette[["text"]], adjust_text_colour)`.
 ℹ In row 1.
 Caused by error in `dplyr::case_when()`:
-! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+! Can't combine `..1 (right)` <colors> and `..3 (right)` <character>.
 ~~~
 {: .error}
 der er lidt at vælge imellem. Selv synes jeg denne er at foretrække.
@@ -77,7 +129,7 @@ Error in `dplyr::mutate()`:
   palette[["text"]], adjust_text_colour)`.
 ℹ In row 1.
 Caused by error in `dplyr::case_when()`:
-! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+! Can't combine `..1 (right)` <colors> and `..3 (right)` <character>.
 ~~~
 {: .error}
 Der er også mac-tastaturer:
@@ -95,7 +147,7 @@ Error in `dplyr::mutate()`:
   palette[["text"]], adjust_text_colour)`.
 ℹ In row 1.
 Caused by error in `dplyr::case_when()`:
-! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+! Can't combine `..1 (right)` <colors> and `..3 (right)` <character>.
 ~~~
 {: .error}
 Man kan highligte taster. Dette er tastaturkombien for %>% 
@@ -114,7 +166,7 @@ Error in `dplyr::mutate()`:
   palette[["text"]], adjust_text_colour)`.
 ℹ In row 1.
 Caused by error in `dplyr::case_when()`:
-! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+! Can't combine `..1 (right)` <colors> and `..3 (right)` <character>.
 ~~~
 {: .error}
 Men hov! det ligner ikke mit tastatur?
@@ -139,7 +191,7 @@ Error in `dplyr::mutate()`:
   palette[["text"]], adjust_text_colour)`.
 ℹ In row 1.
 Caused by error in `dplyr::case_when()`:
-! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+! Can't combine `..1 (right)` <colors> and `..3 (right)` <character>.
 ~~~
 {: .error}
 Jamen det ligner stadig ikke?!
@@ -177,7 +229,7 @@ Error in `dplyr::mutate()`:
   palette[["text"]], adjust_text_colour)`.
 ℹ In row 1.
 Caused by error in `dplyr::case_when()`:
-! Can't combine `prismatic::clr_lighten(text_colour)` <colors> and `text_colour` <character>.
+! Can't combine `..1 (right)` <colors> and `..3 (right)` <character>.
 ~~~
 {: .error}
 

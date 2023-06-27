@@ -159,7 +159,7 @@ Loading required package: mgcv
 
 
 ~~~
-This is mgcv 1.8-41. For overview type 'help("mgcv-package")'.
+This is mgcv 1.8-42. For overview type 'help("mgcv-package")'.
 ~~~
 {: .output}
 
@@ -207,7 +207,10 @@ faithful %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-16-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-16-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-3</p>
+</div>
 
 Der er tydeligvis en fordeling. Den er vist ikke helt normal.
 
@@ -476,7 +479,10 @@ plot(fit)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-16-unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="612" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+<img src="../fig/rmd-16-unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7" width="612" />
+<p class="caption">plot of chunk unnamed-chunk-7</p>
+</div>
 
 ~~~
 ******************************************************************
