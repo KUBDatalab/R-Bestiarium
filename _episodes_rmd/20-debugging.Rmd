@@ -22,6 +22,8 @@ knitr::opts_chunk$set(echo = TRUE)
 pakkerne "flow" og "boomer". 
 Og dertil generelle tips og tricks
 
+https://rtask.thinkr.fr/the-top-10-r-mistakes-the-7th-one-will-surprise-you/
+
 
 Debugging er besværligt. For fejl er som regel vanskelige at finde. Hvis de
 var lette at finde, ville du formentlig ikke have lavet dem til en start.
