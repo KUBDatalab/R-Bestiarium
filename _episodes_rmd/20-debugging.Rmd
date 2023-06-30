@@ -1,0 +1,64 @@
+---
+title: "Rediger data som var du i Excel"
+teaching: 0
+exercises: 0
+questions:
+- "Key question (FIXME)"
+objectives:
+- "First learning objective. (FIXME)"
+keypoints:
+- "First key point. Brief Answer to questions. (FIXME)"
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("20-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Noter
+pakkerne "flow" og "boomer". 
+Og dertil generelle tips og tricks
+
+
+Debugging er besværligt. For fejl er som regel vanskelige at finde. Hvis de
+var lette at finde, ville du formentlig ikke have lavet dem til en start.
+
+Udnyt at rstudio angiver åbenlyse fejl med små røde krydser ud for linie
+nummeret hvor fejlen optræder. Den fanger ubalancerede paranteser og manglende 
+kommaer
+
+
+## Unexpected symbol in
+Optræder hyppigst når du har glemt et komma:
+
+mean(1:4 na.rm = F)
+
+Error: unexpected symbol in "mean(1:4 na.rm"
+
+R forventer at se et komma. I stedet er der na. Det er uventet.
+
+## Object of type closure is not subsettable
+
+```{r}
+mean[1:3]
+```
+Den fejl skyldes at `mean` er af typen "closure:
+```{r}
+typeof(mean)
+```
+Hvad er closure? det er objekter der "encloses", indkapsler, det environment
+det er defineret i. Det er derfor at en funktion har adgang til alle variable 
+i det aktuelle environment. Jeg ved ikke om der er andre ting i R end funktioner der er
+af typen closure. Men funktioner er af typen closure. 
+
+Og funktioner kan ikke subsettes. Fejlen opstår med andre ord, fordi du prøver at 
+subsette en funktioner. 
+
+Hvordan løses det? Ved at lade være med at subsette en funktion.
+
+
+{% include links.md %}
+
