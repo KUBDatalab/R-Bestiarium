@@ -32,6 +32,62 @@ Udnyt at rstudio angiver åbenlyse fejl med små røde krydser ud for linie
 nummeret hvor fejlen optræder. Den fanger ubalancerede paranteser og manglende 
 kommaer
 
+## could not find function
+
+Klassisk fejl. Der er to typiske årsager.
+
+1. der er en stavefejl i funktionen:
+
+```{r eval = F}
+rnom(1) # i stedet for rnorm(1)
+```
+
+2. Den hyppigste. Du har glemt at indlæse et bibliotek
+
+## unexpected SPECIAL in %>% 
+
+```{r eval  =F }
+iris
+%>% select(Species)
+```
+
+Den er gal med linieskiftet.
+
+## unexpected 'else' in "else"
+if (  1 != 1 ) {print("youpi")} 
+else { print("coucou")}
+## Error: unexpected 'else' in "else"
+## 1: if (  1 != 1 ) {print("youpi")} 
+## 2: else
+##    ^
+Same cause as last issue.
+You misplaced a line break.
+
+Correction :
+
+You need to check that the else is correctly associated with the former line.
+R interprets the code one line at a time, and when if doesn’t have an associated else, which makes sense, make sure that R understands that your instruction is finished.
+
+if (  1 != 1 ) {print("youpi")
+  } else { print("coucou")}
+  
+## object dataset not found
+
+Det datasæt (eller object) du prøver at gøre noget ved findes ikke. Det kan være 
+en stavejl. Eller også har du ikke assigned noget til objectets navn.
+har du ikke 
+
+## there is no package called 'tidyvers'
+
+to muligheder. du har stavet forkert. Eller du har ikke indlæst biblioteket.
+
+## non-numeric argument to binary operator
+
+Du har en operator. +, - eller lignende, der forventer to numeriske input,
+et på hver side. Det ene input er ikke numerisk. 
+
+
+
 
 ## Unexpected symbol in
 Optræder hyppigst når du har glemt et komma:
