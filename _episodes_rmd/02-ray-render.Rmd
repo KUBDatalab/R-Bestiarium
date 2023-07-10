@@ -19,18 +19,15 @@ knitr_fig_path("02-")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Enten skal det kun være eksempelkode. Eller også skal jeg uden om problemerne
-med at der ikke er et grafisk interface når dette renderes.
-
-This:
-```{r, echo = F, out.width = "400px"}
+Den her ser pænt cool ud:
+```{r taiwan.jpg-visning, echo = F, out.width = "400px"}
 knitr::include_graphics("../fig/taiwan.jpg")
 ```
 
-Shaded relief map of Taiwan. Made by https://mobile.twitter.com/researchremora
+Det er et reliefkort af Taiwan. Lavet af https://mobile.twitter.com/researchremora
 
-#How to?
-These libraries
+#Hvordan?
+Vi skal bruge disse biblioteker:
 ```{r libraries}
 library(rgdal)
 library(dplyr)
@@ -39,43 +36,50 @@ library(elevatr)
 library(raster)
 ```
 
-Getting the boundaries - in this example for Denmark:
-```{r, eval =F}
+Nu prøver vi så at gøre det for danmark. Indlæs en rds-fil, der indeholder 
+et `sf` objekt:
+```{r hent-sf-data, eval =F}
 denmark <- readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds"))
 ```
+Så skal vi have højdedata. Dem kan funktionen `get_elev_raster` trække fra 
+"Amazon Web Services Terrain Tiles and the Open Topography global datasets API":
 
-Get the elevation from
-Amazon Web Services Terrian Tiles and the Open Topography global datasets API:
-```{r, eval = F}
+```{r hent-elevation, eval = F}
 dem <- get_elev_raster(denmark, z = 6)
 ```
 
-
-```{r, eval = F}
+Så laver vi et nyt `raster` objekt, hvor vi trækker de relevante dele ud af
+højdedata. Vi maskerer højdedata med sf-objektet for Danmark:
+```{r masker-sf-data, eval = F}
 denmark_dem <- raster::mask(dem, denmark)
 ```
 
-
-```{r, eval = F}
-denmark_mat <- raster_to_matrix(denmark_dem)
+Dernæst konverterer vi rasteren til en matrix som rayshaderpakken kan arbejde med:
+```{r konverter-til-matrix, eval = F}
+denmark_mat <- rayshader::raster_to_matrix(denmark_dem)
 ```
 
-
-```{r, eval = F}
+Og så laver vi 3D-plottet af Danmark. Det gør vi ikke her, for det kan GitHub 
+ikke gøre for os. Bemærk også at der er forældede funktioner i brug her - 
+der er kommet nye. Så denne kode skal nok opdateres:
+```{r 3d-plot, eval = F}
 denmark_mat %>% 
   sphere_shade(texture= "imhof3") %>% 
    plot_3d(denmark_mat, windowsize = c(1200,1200),
                      zscale = 20, zoom = 0.75, phi = 89, theta = 0, fov = 0, background = "black")
 ```
 
-
-```{r, eval = F}
+Endelig kan vi gemme filen
+```{r gem-billede-eksempel, eval = F}
 render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, height = 6000)
 ```
 
-```{r, echo = F, out.width = "400px"}
+Og det ser således ud:
+```{r vis-plot, echo = F, out.width = "400px"}
 knitr::include_graphics("../fig/denmark2.png")
 ```
+
+Der er meget andet man kan lege med her.
 
 {% include links.md %}
 
