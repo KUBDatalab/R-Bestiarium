@@ -16,7 +16,7 @@ knitr_fig_path("01-")
 ```
 
 
-```{r proj4rgdal, include = FALSE}
+```{r proj4rgdal-install, include = FALSE}
 install.packages("proj4")
 library(proj4)
 install.packages("rgdal")
@@ -24,14 +24,13 @@ library(rgdal)
 ```
 
 
-```{r terra, include = FALSE}
-
+```{r terra-install, include = FALSE}
 install.packages("terra")
 library(terra)
 ```
 
 
-```{r sp, include = FALSE}
+```{r sp-install, include = FALSE}
 install.packages("sp")
 library(sp)
 ```
@@ -40,7 +39,6 @@ library(sp)
 ```{r raster, include = FALSE}
 install.packages("raster")
 library(raster)
-
 ```
 
 ```{r setup, include=FALSE}
@@ -55,34 +53,42 @@ Her er et eksempel på en tiff-fil med tre lag:
 
 ![Trelagstiff](../fig/stacked_tiff.tif)
 
+Vi skal bruge en række biblioteker:
+```{r library-kald, eval = F}
+library(raster)
+library(sp)
+library(terra)
+library(proj4)
+library(rgdal)
+```
 
-Den kan vi indlæse:
+Så kan vi indlæse filen:
 
-```{r}
+```{r read-file}
 tif <- stack("../fig/stacked_tiff.tif")
 ```
 Der er tre lag:
-```{r}
+```{r vis-lag}
 raster::nlayers(tif)
 ```
 De har navne:
-```{r}
+```{r vis-lagnavne}
 names(tif)
 ```
 Og vi kan plotte dem individuelt:
 
-```{r}
+```{r plot-lag1}
 plot(tif$layer.1)
 ```
-```{r}
+```{r plot-lag2}
 plot(tif$layer.2)
 ```
-```{r}
+```{r plot-lag3}
 plot(tif$layer.3)
 ```
 
 Vi kan også gemme dem individuelt:
-```{r, eval = F}
+```{r save-eksempel, eval = F}
 writeRaster(tif$layer.3, "filnavn.tif")
 ```
 
@@ -91,10 +97,13 @@ writeRaster(tif$layer.3, "filnavn.tif")
 Filen er grabset fra biblioteket `plainview`, mere specifikt er det et udsnit af
 sattelitfotos fra Landsat 8, omkring byen Poppendorf, lidt til højre for Rostock.
 
-Husk også at ikke alle TIFF filer har lag. Så hvis du kun kan trække et enkelt lag ud, så kan det skyldes at der kun er et.
+Husk også at ikke alle TIFF filer har lag. Så hvis du kun kan trække et enkelt 
+lag ud, så kan det skyldes at der kun er et.
 
 De her lagdelte TIFF filer bruges ofte  til at gennem forskellige "kanaler" i billedet.
 
-Det kan være en kanal med landskabet set i IR-spektret. Eller tre kanaler med hver af farverne rød, grøn og blå. Vælger man kun at kigge på det grønne lag, kan det være lettere at identificere hvor vegetationen er.
+Det kan være en kanal med landskabet set i IR-spektret. Eller tre kanaler med 
+hver af farverne rød, grøn og blå. Vælger man kun at kigge på det grønne lag, 
+kan det være lettere at identificere hvor vegetationen er.
 
 {% include links.md %}

@@ -1,9 +1,9 @@
 ---
-title: "Github"
+title: "Github - opsætning af access tokens"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "Hvordan sætter jeg et GitHub access token i RStudio?"
 objectives:
 - "First learning objective. (FIXME)"
 keypoints:
@@ -18,24 +18,36 @@ knitr_fig_path("03-")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Interaktion med github i R-sammenhænge.
+# Interaktion med github i R-sammenhænge.
 
-
+Der er mange detaljer. Dette er noten om hvordan man får sat sit Personal
+Access Token (PAT) i RStudio.
 
 ## Update personal access token:
 
+Det gøres lettest ved at bruge pakken `gitcreds`
+```{r gitcreds-eksempel, eval = F}
 install.packages("gitcreds")
 library(gitcreds)
 gitcreds_set()
+```
 
+Funktionen returnerer:
+```{r setcreds-output, eval  =F }
 1: Keep these credentials
 2: Replace these credentials
 3: See the password / token
+```
 
-Tryk 2 og paste token fra github ind.
+Vælg "2" og paste dit PAT ind på prompten.
+
+Hvor får du så et PAT? Det sker heromkring fra:
+
 
 Det token får vi heromkring fra:
 
-https://github.com/settings/tokens/882844302
+[https://github.com/settings/tokens](https://github.com/settings/tokens)
+
+Hvilket selvfølgelig forudsætter at du er logget på GitHub.
 
 {% include links.md %}
