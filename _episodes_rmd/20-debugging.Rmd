@@ -1,5 +1,5 @@
 ---
-title: "Rediger data som var du i Excel"
+title: "debugging"
 teaching: 0
 exercises: 0
 questions:
