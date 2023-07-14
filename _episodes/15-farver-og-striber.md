@@ -114,7 +114,7 @@ remotes::install_github("wilkelab/cowplot")
 ~~~
 
 ── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/Rtmp2w5TLB/remotes3a16488f7800/wilkelab-cowplot-1f35f38/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/Rtmpd2691A/remotes383a273e6cc0/wilkelab-cowplot-1f35f38/DESCRIPTION’ ... OK
 * preparing ‘cowplot’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts
@@ -137,7 +137,7 @@ install_github("clauswilke/colorblindr")
 ~~~
 
 ── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/Rtmp2w5TLB/remotes3a1635e76821/clauswilke-colorblindr-e6730be/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/Rtmpd2691A/remotes383a1fc5ad14/clauswilke-colorblindr-e6730be/DESCRIPTION’ ... OK
 * preparing ‘colorblindr’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts

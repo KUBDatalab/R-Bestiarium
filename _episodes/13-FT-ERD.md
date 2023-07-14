@@ -40,7 +40,7 @@ Downloading GitHub repo bergant/datamodelr@HEAD
 
 ~~~
 ── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpvNO4tb/remotes396515570910/bergant-datamodelr-6aeceb6/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/Rtmpfkr8PN/remotes357222018c35/bergant-datamodelr-6aeceb6/DESCRIPTION’ ... OK
 * preparing ‘datamodelr’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts

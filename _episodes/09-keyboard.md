@@ -52,13 +52,6 @@ prismatic (NA -> 1.1.1    ) [CRAN]
 
 
 ~~~
-Skipping 1 packages ahead of CRAN: colorspace
-~~~
-{: .output}
-
-
-
-~~~
 Installing 4 packages: RcppEigen, polyclip, ggforce, prismatic
 ~~~
 {: .output}
@@ -75,7 +68,7 @@ Installing packages into '/home/runner/work/_temp/Library'
 
 ~~~
 ── R CMD build ─────────────────────────────────────────────────────────────────
-* checking for file ‘/tmp/RtmpAG44xJ/remotes3b486a827f1/sharlagelfand-ggkeyboard-061f0d9/DESCRIPTION’ ... OK
+* checking for file ‘/tmp/RtmpRcSUDs/remotes36347502bc59/sharlagelfand-ggkeyboard-061f0d9/DESCRIPTION’ ... OK
 * preparing ‘ggkeyboard’:
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files and shell scripts

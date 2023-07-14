@@ -36,8 +36,18 @@ Her er et eksempel på en tiff-fil med tre lag:
 
 ![Trelagstiff](../fig/stacked_tiff.tif)
 
+Vi skal bruge en række biblioteker:
 
-Den kan vi indlæse:
+~~~
+library(raster)
+library(sp)
+library(terra)
+library(proj4)
+library(rgdal)
+~~~
+{: .language-r}
+
+Så kan vi indlæse filen:
 
 
 ~~~
@@ -79,8 +89,8 @@ plot(tif$layer.1)
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-01-unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-4</p>
+<img src="../fig/rmd-01-plot-lag1-1.png" alt="plot of chunk plot-lag1" width="612" />
+<p class="caption">plot of chunk plot-lag1</p>
 </div>
 
 ~~~
@@ -89,8 +99,8 @@ plot(tif$layer.2)
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-01-unnamed-chunk-5-1.png" alt="plot of chunk unnamed-chunk-5" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-5</p>
+<img src="../fig/rmd-01-plot-lag2-1.png" alt="plot of chunk plot-lag2" width="612" />
+<p class="caption">plot of chunk plot-lag2</p>
 </div>
 
 ~~~
@@ -99,8 +109,8 @@ plot(tif$layer.3)
 {: .language-r}
 
 <div class="figure" style="text-align: center">
-<img src="../fig/rmd-01-unnamed-chunk-6-1.png" alt="plot of chunk unnamed-chunk-6" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-6</p>
+<img src="../fig/rmd-01-plot-lag3-1.png" alt="plot of chunk plot-lag3" width="612" />
+<p class="caption">plot of chunk plot-lag3</p>
 </div>
 
 Vi kan også gemme dem individuelt:
@@ -115,10 +125,13 @@ writeRaster(tif$layer.3, "filnavn.tif")
 Filen er grabset fra biblioteket `plainview`, mere specifikt er det et udsnit af
 sattelitfotos fra Landsat 8, omkring byen Poppendorf, lidt til højre for Rostock.
 
-Husk også at ikke alle TIFF filer har lag. Så hvis du kun kan trække et enkelt lag ud, så kan det skyldes at der kun er et.
+Husk også at ikke alle TIFF filer har lag. Så hvis du kun kan trække et enkelt 
+lag ud, så kan det skyldes at der kun er et.
 
 De her lagdelte TIFF filer bruges ofte  til at gennem forskellige "kanaler" i billedet.
 
-Det kan være en kanal med landskabet set i IR-spektret. Eller tre kanaler med hver af farverne rød, grøn og blå. Vælger man kun at kigge på det grønne lag, kan det være lettere at identificere hvor vegetationen er.
+Det kan være en kanal med landskabet set i IR-spektret. Eller tre kanaler med 
+hver af farverne rød, grøn og blå. Vælger man kun at kigge på det grønne lag, 
+kan det være lettere at identificere hvor vegetationen er.
 
 {% include links.md %}

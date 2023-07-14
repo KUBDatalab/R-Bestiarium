@@ -16,19 +16,16 @@ keypoints:
 
 
 
-Enten skal det kun være eksempelkode. Eller også skal jeg uden om problemerne
-med at der ikke er et grafisk interface når dette renderes.
-
-This:
+Den her ser pænt cool ud:
 <div class="figure" style="text-align: center">
-<img src="../fig/taiwan.jpg" alt="plot of chunk unnamed-chunk-2" width="400px" />
-<p class="caption">plot of chunk unnamed-chunk-2</p>
+<img src="../fig/taiwan.jpg" alt="plot of chunk taiwan.jpg-visning" width="400px" />
+<p class="caption">plot of chunk taiwan.jpg-visning</p>
 </div>
 
-Shaded relief map of Taiwan. Made by https://mobile.twitter.com/researchremora
+Det er et reliefkort af Taiwan. Lavet af https://mobile.twitter.com/researchremora
 
-#How to?
-These libraries
+#Hvordan?
+Vi skal bruge disse biblioteker:
 
 ~~~
 library(rgdal)
@@ -169,36 +166,40 @@ The following object is masked from 'package:dplyr':
 ~~~
 {: .output}
 
-Getting the boundaries - in this example for Denmark:
+Nu prøver vi så at gøre det for danmark. Indlæs en rds-fil, der indeholder 
+et `sf` objekt:
 
 ~~~
 denmark <- readRDS(url("https://geodata.ucdavis.edu/gadm/gadm4.0/Rsf/gadm40_DNK_0_sf.rds"))
 ~~~
 {: .language-r}
+Så skal vi have højdedata. Dem kan funktionen `get_elev_raster` trække fra 
+"Amazon Web Services Terrain Tiles and the Open Topography global datasets API":
 
-Get the elevation from
-Amazon Web Services Terrian Tiles and the Open Topography global datasets API:
 
 ~~~
 dem <- get_elev_raster(denmark, z = 6)
 ~~~
 {: .language-r}
 
-
+Så laver vi et nyt `raster` objekt, hvor vi trækker de relevante dele ud af
+højdedata. Vi maskerer højdedata med sf-objektet for Danmark:
 
 ~~~
 denmark_dem <- raster::mask(dem, denmark)
 ~~~
 {: .language-r}
 
-
+Dernæst konverterer vi rasteren til en matrix som rayshaderpakken kan arbejde med:
 
 ~~~
-denmark_mat <- raster_to_matrix(denmark_dem)
+denmark_mat <- rayshader::raster_to_matrix(denmark_dem)
 ~~~
 {: .language-r}
 
-
+Og så laver vi 3D-plottet af Danmark. Det gør vi ikke her, for det kan GitHub 
+ikke gøre for os. Bemærk også at der er forældede funktioner i brug her - 
+der er kommet nye. Så denne kode skal nok opdateres:
 
 ~~~
 denmark_mat %>% 
@@ -208,17 +209,20 @@ denmark_mat %>%
 ~~~
 {: .language-r}
 
-
+Endelig kan vi gemme filen
 
 ~~~
 render_snapshot(filename = "../fig/denmark2.png", samples = 100, width = 6000, height = 6000)
 ~~~
 {: .language-r}
 
+Og det ser således ud:
 <div class="figure" style="text-align: center">
-<img src="../fig/denmark2.png" alt="plot of chunk unnamed-chunk-9" width="400px" />
-<p class="caption">plot of chunk unnamed-chunk-9</p>
+<img src="../fig/denmark2.png" alt="plot of chunk vis-plot" width="400px" />
+<p class="caption">plot of chunk vis-plot</p>
 </div>
+
+Der er meget andet man kan lege med her.
 
 {% include links.md %}
 

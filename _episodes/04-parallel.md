@@ -5,7 +5,7 @@ title: "Parallel computing"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "Hvordan kører jeg ting parallelt?"
 objectives:
 - "First learning objective. (FIXME)"
 keypoints:
@@ -15,24 +15,27 @@ keypoints:
 
 
 
-Ingen kode her køres faktisk - for det giver ingen mening at køre det på github
-platformen og genere eksemplerne. Så.
+# Parallelprocessering i R
+Der køres ingen kode her - for det giver ingen mening at køre den slags på
+GitHub
 
-Parallelt? Det er når vi deler vores beregninger op i flere mindre portioner. 
+Når vi normalt kører R, bruger vi en enkelt kerne på computeren. Og til det
+meste rækker det. En moderne computer har normalt mere end en kerne. Selv en
+meget lille computer som en Raspberry Pi har fire.
 
-En computer har normalt mere end en kerne. 
+Så hvis vi har en række beregninger der kan køres uafhængigt af hinanden, kan 
+vi dele dem op i flere portioner, lade hver kerne på computeren klare en
+hver, og samle resultaterne bagefter.
 
-Men normalt kører R kun på en kerne. 
+Det kan gøres på mange måder. Dette er en.
 
-Hvis vi kunne få R til at køre på mere end en kerne - så kan vi få tunge 
-processer til at køre hurtigere.
-
-Pakken parallel understøtter parallelle beregninger:
+Biblioteket parallel understøtter parallelle beregninger:
 
 ~~~
 library(parallel)
 ~~~
 {: .language-r}
+
 Det første vi kan undersøge er hvor mange kerner vi kan arbejde med:
 
 
@@ -40,27 +43,41 @@ Det første vi kan undersøge er hvor mange kerner vi kan arbejde med:
 detectCores()
 ~~~
 {: .language-r}
+
 Det giver outputtet:
 
+
+~~~
+8
+~~~
+{: .language-r}
+
+
+
+~~~
 [1] 8
+~~~
+{: .output}
 
 Fordi jeg på min computer har 8 kerner. 
 
-Vi har normalt ikke lyst til at bruge alle kerner. Så det antal kerner vi 
-arbejder med er som regel:
+Det er god praksis ikke at bruge alle kernerne - der skal være noget tilbage
+til at holde liv i computeren. Så almindeligvis kører vi på antallet af kerner,
+minus 1. Det gemmer vi som en variabel:
+
 
 
 ~~~
 num_cores <- detectCores() - 1
 ~~~
 {: .language-r}
-Så når jeg har 8 kerner at gøre godt med, så lader jeg R køre på de 7. Så er der
-en kerne til overs til andet.
+
 
 Ting kan køres parallelt på mere end en måde.
 
 Hvis man er bekendt med apply funktioner, er den hrugtige måde at gøre 
 det på mclapply
+
 
 ~~~
 kmeans
@@ -76,6 +93,8 @@ library(doParallel)
 foreach (i=1:3) %dopar% {
   sqrt(i)
 }
+
+
 ## i tidyverse
 library(multidplyr)
 
