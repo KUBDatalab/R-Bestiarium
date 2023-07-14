@@ -80,7 +80,7 @@ Hvis man ønsker at pille i eksempelvis farven, er det her nødvendigt at finde
 ud af hvilket af de to lag - og der kunne være flere - der indeholder `geom_smooth`.
 
 Det kan gøres på denne måde:
-```{r}
+```{r eval  =F}
 library(gginnards)
 which_layers(p, "GeomSmooth")
 ```
