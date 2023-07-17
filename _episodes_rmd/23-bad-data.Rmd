@@ -1,0 +1,112 @@
+---
+title: "Eksempler på dataproblemer"
+teaching: 0
+exercises: 0
+questions:
+- "Key question (FIXME)"
+objectives:
+- "First learning objective. (FIXME)"
+keypoints:
+- "First key point. Brief Answer to questions. (FIXME)"
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("23-")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+Eksempler på problemer med data vi har oplevet. Eller som vi kan forestille os.
+
+Og med lidt held forslag til hvordan de kan fixes.
+
+## Manglende værdier
+
+Hvad er årsagen til at de mangler? Er det fordi en værdi aldrig blev indsamlet?
+Er der en respondent i en brugerundersøgelse der nægtede at svare? En ting er 
+at du har fået kodet data som NA (og det bør du). Men stil spørgsmålet - ved jeg 
+hvorfor dette datapunkt mangler?
+
+## Manglende værdier kodet som andet end NA
+
+Det klassiske eksempel vi bruger er Knudsens indsamling af katalytisk omsætning
+i hans speciale. Den omsætning kan kun ligge mellem 0 og 1. Han kodede manglende
+data som 999. Det skal gå galt. Har du ikke selv indsamlet data, skal du sikre
+dig at du har styr på alternative måder at kode manglende data. Hvis der står
+"0", er det så fordi værdien er 0? Eller er det en dårlig måde at kode at der
+mangler en værdi? 
+
+Og det kan optræde på andre måder. Et 0 i en dato kan være kamufleret som 1. januar
+1970, eller 31. december 1969 - fordi det er der Unix tæller fra. Samme problem kan
+optræde i koordinater. Enten ved at koordinaterne viser en lokation i Atlanterhavet.
+Eller ved at det eneste vi ved om koordinaten er at den er i USA. Hvilket giver
+[https://www.youtube.com/watch?v=vh6zanS_epw](særligt interessante udfordringer).
+
+## data der bør være der. Men som ikke er der
+Sørg for at kvalitetssikre dine data. Hvis du har data på alle danske kommuner -
+er der så faktisk data på alle kommuner?
+
+## Duplikerede data
+Tjek om der er rækker der optræder mere end en gang. 
+```{r dublet-eksempel, echo = F}
+data <- mtcars %>% 
+  rbind(mtcars[10,])
+```
+Her har vi eksempel på data, hvor der er en enkelt dubleret række. Vi finder
+let ud af at der er netop en på denne måde: 
+```{r dublet-eksempel-demo}
+sum(duplicated(data))
+```
+Og her finder vi den dublerede række. Eller i hvert fald indholdet:
+```{r}
+data %>% 
+  group_by_all() %>% 
+  filter(n()>1) %>% 
+  ungroup()
+```
+Men det er ikke kun hele rækker der kan være dublerede. Hvis der er dubletter
+i en kolonne - er det så fordi der skal være dubletter? Sørg for at du ved 
+hvorfor der er dubletter i dit data.
+
+## Inkonsistent stavemåde
+
+Bruger vi tekst - skal vi sikre os at den måde noget er stavet på er konsistent.
+Det kan være egentlige stave/tastefejl. Det kan også være forskellige konventioner,
+eller sprog. Er data indsamlet fra flere kilder, kan Helsingør også optræde som
+Elsinore. Et konkret eksempel vi har set har været virksomhedsnavne fra Italien.
+Selskaber med begrænset ansvar - SMBA i Danmark - hedder i Italien SRL. Men 
+de kan også angives som s.r.l. Samme virksomhed kan derfor optræde med forskellig 
+stavemåde.
+
+Egentlige stave/tastefejl afslører at data formentlig er redigeret eller indtastet
+i hånden. Og så er der formentlig flere fejl.
+
+## Personnavne
+Er du sikker på at efternavne altid står til sidst? Eller altid først? 
+Vores yndlingseksempel er databaser der godt ved at kinesere har familienavnet stående
+først, og derfor bytter om, så navnet følger den vestlige norm. I kombination med
+kinesiske forskere der godt ved at normen i de tidsskrifter de publicerer i er
+anderledes, og derfor selv har byttet om på deres for- og efternavn. Har du 
+navne i dine data - så tjek det.
+
+## Inkonsistente datoformater
+Amerikanere mener at den sidste dag i 2023 vil (have) være 123123 - det er jo et sjovt 
+tal. men sådan skriver vi det ikke uden for USA - der er det 311223. Er der 
+datoer i dine data - så sørg for at du har styr på hvilket datoformat der 
+bruges. Og konverter gerne alt til formatet 2023-12-31.
+
+## Manglende enheder
+Tal optræder sjældent i data enhedsløst. Hvilken enhed måles et beløb i?
+Euro? Amerikanske dollar? Pund? Kroner? Danske, norske eller svenske kroner?
+Og hvis det er beløb, så var en svensk krone i 2000 en anden værdi end den
+var i 2020.
+
+
+
+
+{% include links.md %}
+
