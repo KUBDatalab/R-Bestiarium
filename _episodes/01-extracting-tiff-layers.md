@@ -54,13 +54,6 @@ Så kan vi indlæse filen:
 tif <- stack("../fig/stacked_tiff.tif")
 ~~~
 {: .language-r}
-
-
-
-~~~
-Warning in sp::CRS(...): sf required for evolution_status==2L
-~~~
-{: .warning}
 Der er tre lag:
 
 ~~~

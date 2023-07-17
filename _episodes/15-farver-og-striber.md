@@ -106,10 +106,46 @@ Pakken colorblindr giver et bud på det. Den skal installeres fra github:
 ~~~
 library(devtools)
 remotes::install_github("wilkelab/cowplot")
+~~~
+{: .language-r}
+
+
+
+~~~
+
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpdwBTLU/remotes3b156c763d86/wilkelab-cowplot-1f35f38/DESCRIPTION’ ... OK
+* preparing ‘cowplot’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Omitted ‘LazyData’ from DESCRIPTION
+* building ‘cowplot_1.1.2.tar.gz’
+~~~
+{: .output}
+
+
+
+~~~
 install.packages("colorspace", repos = "http://R-Forge.R-project.org")
 install_github("clauswilke/colorblindr")
 ~~~
 {: .language-r}
+
+
+
+~~~
+
+── R CMD build ─────────────────────────────────────────────────────────────────
+* checking for file ‘/tmp/RtmpdwBTLU/remotes3b1532a5677b/clauswilke-colorblindr-e6730be/DESCRIPTION’ ... OK
+* preparing ‘colorblindr’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files and shell scripts
+* checking for empty or unneeded directories
+Omitted ‘LazyData’ from DESCRIPTION
+* building ‘colorblindr_0.1.0.tar.gz’
+~~~
+{: .output}
 
 Hvorefter vi kan indlæse den.
 
@@ -128,9 +164,10 @@ Loading required package: colorspace
 
 
 ~~~
-Loading required package: ggplot2
+Error in value[[3L]](cond): Package 'colorspace' version 2.1.0 cannot be unloaded:
+ Error in unloadNamespace(package) : namespace 'colorspace' is imported by 'munsell' so cannot be unloaded
 ~~~
-{: .output}
+{: .error}
 
 cvd_grid vil vise os bruger som udgangspunkt det sidste plot vi lavede.
 
@@ -149,10 +186,12 @@ cvd_grid()
 ~~~
 {: .language-r}
 
-<div class="figure" style="text-align: center">
-<img src="../fig/rmd-15-unnamed-chunk-8-2.png" alt="plot of chunk unnamed-chunk-8" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-8</p>
-</div>
+
+
+~~~
+Error in cvd_grid(): could not find function "cvd_grid"
+~~~
+{: .error}
 
 Og det var ethvert plot:
 
@@ -163,20 +202,26 @@ ggplot(mtcars, aes(cyl, mpg, color = gear)) +
 ~~~
 {: .language-r}
 
-<div class="figure" style="text-align: center">
-<img src="../fig/rmd-15-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-9</p>
-</div>
+
+
+~~~
+Error in ggplot(mtcars, aes(cyl, mpg, color = gear)): could not find function "ggplot"
+~~~
+{: .error}
+
+
 
 ~~~
 cvd_grid()
 ~~~
 {: .language-r}
 
-<div class="figure" style="text-align: center">
-<img src="../fig/rmd-15-unnamed-chunk-9-2.png" alt="plot of chunk unnamed-chunk-9" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-9</p>
-</div>
+
+
+~~~
+Error in cvd_grid(): could not find function "cvd_grid"
+~~~
+{: .error}
 
 Det en person med normalt farvesyn får her, er et estimat af hvordan et plot vil se ud ved forskellige typer af farveblindhed. Og det er nok blot et estimat, men bedre end ingenting.
 
@@ -221,14 +266,9 @@ mtcars %>%
 
 
 ~~~
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Error in ggplot(., aes(hp, fill = factor(am))): could not find function "ggplot"
 ~~~
-{: .output}
-
-<div class="figure" style="text-align: center">
-<img src="../fig/rmd-15-unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10" width="612" />
-<p class="caption">plot of chunk unnamed-chunk-10</p>
-</div>
+{: .error}
 
 ~~~
 scale_c
