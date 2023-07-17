@@ -116,16 +116,35 @@ library(rayshader)
 
 
 ~~~
-Warning in rgl.init(initValue, onlyNULL): RGL: unable to open X11 display
+Error in dyn.load(dynlib <- getDynlib(dir)) : 
+  unable to load shared object '/home/runner/work/_temp/Library/rgl/libs/rgl.so':
+  libGLU.so.1: cannot open shared object file: No such file or directory
+~~~
+{: .output}
+
+
+
+~~~
+Warning: Loading rgl's DLL failed.
 ~~~
 {: .warning}
 
 
 
 ~~~
-Warning: 'rgl.init' failed, running with 'rgl.useNULL = TRUE'.
+Warning: Trying without OpenGL...
 ~~~
 {: .warning}
+
+
+
+~~~
+Error: package or namespace load failed for 'rayshader':
+ .onLoad failed in loadNamespace() for 'rgl', details:
+  call: rgl.init(initValue, onlyNULL)
+  error: OpenGL is not available in this build
+~~~
+{: .error}
 
 
 
@@ -137,10 +156,11 @@ library(elevatr)
 
 
 ~~~
-elevatr v0.4.5 NOTE: This is the last version of 'elevatr' that will use the 
-'sp' and 'raster' packages. The next release will switch to 'sf' and 'terra'.
+Error: package or namespace load failed for 'elevatr' in dyn.load(file, DLLpath = DLLpath, ...):
+ unable to load shared object '/home/runner/work/_temp/Library/units/libs/units.so':
+  libudunits2.so.0: cannot open shared object file: No such file or directory
 ~~~
-{: .output}
+{: .error}
 
 
 
