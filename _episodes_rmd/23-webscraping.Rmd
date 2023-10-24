@@ -1,5 +1,5 @@
 ---
-title: "Juster på ggplots programmatisk"
+title: "webscraping noter"
 teaching: 0
 exercises: 0
 questions:
@@ -12,60 +12,13 @@ keypoints:
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("22-")
+knitr_fig_path("23-")
 ```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Eller hvad det nu hedder. Vi vil godt kunne lade et script styre om 
-punkter i et plot skal plottes med color i stedet for shape:
-
-```{r}
-library(tidyverse)
-mtcars %>% 
-  ggplot(aes(mpg, wt, shape = factor(am))) +
-  geom_point()
-```
-
-Det gør vi ved at bruge tidy evaluation idiomer. 
-```{r}
-noget <- "am"
-andet <- "color"
-mtcars %>% 
-  ggplot(aes(mpg, wt, !!andet := factor(!!as.symbol(noget)))) +
-  geom_point()
-
-
-```
-
-
-Det funger ikke alene her - det fungerer også med de øvrige tidyverse
-funktioner. 
-
-Hvad hvis vi godt ville plotte med geom_lines i stedet for geom_point?
-
-
-Fungerer det også med dplyr?
-```{r}
-mtcars %>% 
-  group_by(!!as.symbol(noget)) %>% 
-  summarise(n = n()) %>% 
-  mutate(test = !!andet)
-```
-Vil vi styre hvilken geom vi skal bruge, vil det her virke:
-
-```{r}
-
-a <- "geom_point()"  # eller a <- "geom_line"
-
-mtcars %>%
-  ggplot(aes(mpg, wt, shape = factor(am))) +
-  eval(parse(text = a))  # Evaluere og udføre den dynamiske funktion
-
-```
-
-
+pakken polite er værd at kigge på
 {% include links.md %}
 
