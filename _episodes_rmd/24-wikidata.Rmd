@@ -1,0 +1,22 @@
+---
+title: "Træk data fra Wikidata"
+teaching: 0
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "FIXME"
+keypoints:
+- "FIXME"
+---
+
+```{r SETUP, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("24-")
+```
+
+```{r}
+library(WikidataR)
+```
+
+{% include links.md %}
